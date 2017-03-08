@@ -8,9 +8,21 @@ requirejs.config({
     //the paths config could be for a directory.
     paths: {
         jquery: 'libs/jquery-3.1.1.min',
+        underscore: '',
+        backbone: '',
         app: 'app',
-        locations: 'app/views/locations-detail-view',
-        locations_map: 'app/views/locations-map-view'
+        app_controller: 'app/controllers/app-controller',
+        locations_controller: 'app/controller/locations-controller',
+        times_controller: 'app/controller/times-controller',
+        app_data_model: 'app/models/app-data-model',
+        locations_model: 'app/models/locations-model',
+        times_model: 'app/models/times-model',
+        locations_detail_view: 'app/views/locations-detail-view',
+        locations_map_view: 'app/views/locations-map-view',
+        locations_view: 'app/views/locations-view',
+        setting_view: 'app/views/settings-view',
+        tracker_view: 'app/views/tracker-view'
+
     }
     
 });
