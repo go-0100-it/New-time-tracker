@@ -1,4 +1,4 @@
-define(['./locations'], function(location) {
+require(['locations_detail_view'], function(location) {
 
     console.log("locations-map-view.js Loaded successfully");
     if (location) {

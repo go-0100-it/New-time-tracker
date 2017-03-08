@@ -1,13 +1,17 @@
-require(['./jquery','./locations'], function($, loc){
+// More description
 
-    console.log('App js loaded successfully');
+define(['locations_detail_view'], function(loc) {
 
-if ($) {
-        console.log('Jquery is available in app.js');
-    } else {
-        console.log('Jquery is NOT available in app.js');
-    }
-    var newView = loc.createView('div','body', ['big', 'red', 'dark'], 'box', false, false, "Hello World");
+    var newView = loc.createView('div', 'body', ['big', 'red', 'dark'], 'box', false, false, "Hello World");
     newView.style.color = 'red';
+
+
 });
 
+/*
+
+This module will require app-controller.js
+will require locations-controller.js
+will require times-controller.js
+
+ */

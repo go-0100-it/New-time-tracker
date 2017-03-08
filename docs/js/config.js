@@ -12,21 +12,21 @@ requirejs.config({
         backbone: '',
         app: 'app',
         app_controller: 'app/controllers/app-controller',
-        locations_controller: 'app/controller/locations-controller',
-        times_controller: 'app/controller/times-controller',
+        locations_controller: 'app/controllers/locations-controller',
+        times_controller: 'app/controllers/times-controller',
         app_data_model: 'app/models/app-data-model',
         locations_model: 'app/models/locations-model',
         times_model: 'app/models/times-model',
         locations_detail_view: 'app/views/locations-detail-view',
         locations_map_view: 'app/views/locations-map-view',
         locations_view: 'app/views/locations-view',
-        setting_view: 'app/views/settings-view',
-        tracker_view: 'app/views/tracker-view'
+        settings_view: 'app/views/settings-view',
+        tracker_view: 'app/views/tracker-view',
+        times_detail_view: 'app/views/times-detail-view'
 
     }
-    
+
 });
 // Start the main app logic.
-        requirejs(['jquery', 'app', 'locations', 'locations_map'],
-            function($, app, locations, locations_map) {
-        });
+requirejs(['jquery', 'app', 'locations_detail_view', 'locations_map_view'],
+    function($, app, locations, locations_map) {});
