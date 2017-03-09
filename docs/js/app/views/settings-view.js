@@ -1,6 +1,6 @@
 // More description
 
-require(['app_data_model', 'settings_view'], function(appDataModel, settingsView) {
+require([], function() {
 
     console.log('settings-view.js has successfully loaded');
 });

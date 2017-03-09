@@ -1,17 +1,12 @@
-// More description
+define(['jquery','app_controller','locations_controller', 'times_controller'], function($, app, loc, times){
 
-define(['locations_detail_view'], function(loc) {
+    console.log('App js loaded successfully');
 
-    var newView = loc.createView('div', 'body', ['big', 'red', 'dark'], 'box', false, false, "Hello World");
-    newView.style.color = 'red';
-
+if ($) {
+        console.log('Jquery is available in app.js');
+    } else {
+        console.log('Jquery is NOT available in app.js');
+    }
 
 });
 
-/*
-
-This module will require app-controller.js
-will require locations-controller.js
-will require times-controller.js
-
- */

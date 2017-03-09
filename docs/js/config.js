@@ -28,5 +28,5 @@ requirejs.config({
 
 });
 // Start the main app logic.
-requirejs(['jquery', 'app', 'locations_detail_view', 'locations_map_view'],
-    function($, app, locations, locations_map) {});
+requirejs(['jquery', 'app'],
+    function($, app) {});

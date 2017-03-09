@@ -1,9 +1,5 @@
 // More description
 
-require(['locations_detail_view'], function(loc) {
-
-    var newView = loc.createView('div', 'body', ['big', 'red', 'dark'], 'box', false, false, "Hello World");
-    newView.style.color = 'red';
-
-
+require([], function() {
+    console.log('times-model.js has successfully loaded');
 });
