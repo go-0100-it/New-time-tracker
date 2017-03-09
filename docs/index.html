@@ -19,6 +19,63 @@
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+        <nav class="nav-bar">
+        <div class="gps-icon-container">
+            <!--<img id="gps" src="images/location_off.png" class="gps-icon" alt="GPS icon">-->
+        </div>
+        <div style="display: inline-block;">
+            <h4 class="header-h1">Time Tracker</h4>
+        </div>
+        <div class="dropdown">
+            <div id="options-menu-btn" class="dropbtn"><span class="glyphicon glyphicon-option-vertical"></span>
+            </div>
+            <div class="dropdown-content dropdown-hide">
+                <a id="manage-times" class="dropdown-content-link">Manage Times</a>
+                <a id="manage-locations" class="dropdown-content-link">Manage Locations</a>
+                <a id="show-times" class="dropdown-content-link">Show Times</a>
+                <a id="settings" class="dropdown-content-link">Settings</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <section class="input-container">
+            <div class="input-section">
+                <div class="shift-title">Shift type:</div>
+                <select id="shift-type">
+                    <option value="DAYS">DAYS</option>
+                    <option value="AFTERNOONS">AFTERNOONS</option>
+                    <option value="NIGHTS">NIGHTS</option>
+                    <option value="WEEKEND">WEEKEND</option>
+                </select>
+                <input class="time" id="date" type="text" placeholder="Date"><input class="time" id="inTime" type="text" placeholder="In Time"><input class="time" id="outTime" type="text" placeholder="Out Time">
+                <textarea id="text" type="text" placeholder="Message"></textarea><br/>
+                <button id="start">Start</button><button id="finish">Finish</button><button id="new">Enter New Time</button><br/>
+                <hr/>
+            </div>
+        </section>
+        <section class="display-container hide" id="display">
+            <div id="results"></div>
+
+        </section>
+    </div>
+    <!--<script>
+        var x = document.getElementById("text");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.value = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            x.value = "Latitude: " + position.coords.latitude +
+                "                          Longitude: " + position.coords.longitude;
+        }
+    </script>
+    <script src="firebase_helper.js"></script>
+    <script src="app.js"></script>-->
 
 </body>
 
