@@ -8,8 +8,8 @@ requirejs.config({
     //the paths config could be for a directory.
     paths: {
         jquery: 'libs/jquery-3.1.1.min',
-        underscore: '',
-        backbone: '',
+        underscore: '_',
+        backbone: '_',
         app: 'app',
         app_controller: 'app/controllers/app-controller',
         locations_controller: 'app/controllers/locations-controller',
@@ -28,5 +28,5 @@ requirejs.config({
 
 });
 // Start the main app logic.
-requirejs(['jquery', 'app', 'locations_detail_view', 'locations_map_view'],
-    function($, app, locations, locations_map) {});
+requirejs(['jquery', 'app'],
+    function($, app) {});
