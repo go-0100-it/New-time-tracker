@@ -1,10 +1,12 @@
-define(['app_data_model', 'settings_view'], function(appDataModel, settingsView) {
-
-    console.log('app-controller.js has successfully loaded');
-
-    var testCSSloader = function() {
-        require(['css!css/settings/settings-view.css'], function() {
-            alert('Stylesheet has been loaded');
-        });
+define(['jquery', 'app_data_model'], function($, appDataModel) {
+    var app = {
+        'testCSSloader': function() {
+            require(['css!css/times/tracker-view.css'], function() {
+                require(['tracker_view'], function(trackerView) {
+                    trackerView.createDiv("Hello World");
+                });
+            });
+        }
     };
+    return app;
 });

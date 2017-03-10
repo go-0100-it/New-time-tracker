@@ -1,14 +1,13 @@
-define(['jquery', 'app_controller' /*, 'main_controller', 'locations_controller', 'times_controller'*/ ], function($, app /*, main, loc, times*/ ) {
+var log = function(text) {
+    console.log(text);
+    alert(text);
+};
 
-    console.log('App js loaded successfully');
-    alert("ALL DEPENDANTS WERE SUCCESSFULLY LOADED!")
+define(['jquery', 'main_controller' /*, 'main_controller', 'locations_controller', 'times_controller'*/ ], function($, _main, times) {
 
-    if ($) {
-        console.log('Jquery is available in app.js');
-    } else {
-        console.log('Jquery is NOT available in app.js');
-    }
+    log("PLEASE GIVE US A SECOND TO LOAD YOUR STUFF!");
 
-    app.testCSSloader();
+    $.hideLoading();
+
 
 });

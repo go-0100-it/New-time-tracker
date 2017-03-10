@@ -1,0 +1,10 @@
+.tracker-view-css-loaded {
+    height: 1px;
+}
+
+div {
+    font-size: 90px;
+    background: black;
+    color: red;
+    font-weight: 900;
+}
