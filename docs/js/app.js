@@ -9,6 +9,6 @@ define(['jquery', 'app_controller' /*, 'main_controller', 'locations_controller'
         console.log('Jquery is NOT available in app.js');
     }
 
-    app_controller.testCSSloader();
+    app.testCSSloader();
 
 });
