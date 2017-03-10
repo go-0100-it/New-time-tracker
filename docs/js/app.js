@@ -1,4 +1,4 @@
-define(['jquery', 'app_controller', 'main_controller', 'locations_controller', 'times_controller'], function($, app, main, loc, times) {
+define(['jquery', 'app_controller' /*, 'main_controller', 'locations_controller', 'times_controller'*/ ], function($, app /*, main, loc, times*/ ) {
 
     console.log('App js loaded successfully');
     alert("ALL DEPENDANTS WERE SUCCESSFULLY LOADED!")
