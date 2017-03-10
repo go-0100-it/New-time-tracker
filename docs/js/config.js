@@ -26,8 +26,8 @@ requirejs.config({
         /* Views */
         // main
         main_view: 'app/views/main/js/main-view',
-        draw_view: 'app/views/main/js/drawer-menu-view',
-        navbar_view: 'app/views/main/js/navbar_view',
+        drawer_view: 'app/views/main/js/drawer-menu-view',
+        navbar_view: 'app/views/main/js/navbar-view',
 
         // locations
         locations_detail_view: 'app/views/locations/js/locations-detail-view',
