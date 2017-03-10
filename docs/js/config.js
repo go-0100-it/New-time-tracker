@@ -7,9 +7,11 @@ requirejs.config({
     //never includes a ".js" extension since
     //the paths config could be for a directory.
     paths: {
+        /* Libraries */
         jquery: 'libs/jquery-3.1.1.min',
-        underscore: '_',
-        backbone: '_',
+        underscore: 'libs/underscore.js-1.8.3.min',
+        backbone: 'libs/backbone',
+        require_css: 'libs/require-css',
         app: 'app',
 
         /* Controllers */
