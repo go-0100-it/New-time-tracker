@@ -8,7 +8,7 @@ define([
     ],
     function($, main, times, CONSTANTS) {
         main.initialize();
-        //alert("PLEASE GIVE US A SECOND TO LOAD YOUR STUFF!");
+        alert("PLEASE GIVE US A SECOND TO LOAD YOUR STUFF!");
 
         $.hideLoading();
     });
