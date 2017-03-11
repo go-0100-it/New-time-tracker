@@ -1,6 +1,16 @@
 // More description
 
-define(['app_data_model', 'drawer_view', 'main_view', 'navbar_view'], function(appDataModel, drawerView, mainView, navbarView) {
+define(['jquery', 'backbone', 'underscore', 'app_data_model', 'drawer_view', 'main_view', 'navbar_view', 'tracker_view'],
+    function($, backbone, _, appDataModel, drawerView, mainView, navbarView, TrackerView) {
 
-    return this;
-});
+        var initialize = function() {
+            $(document).ready(function() {
+                var myView = new TrackerView();
+                myView.render();
+            });
+        };
+
+        return {
+            initialize: initialize
+        };
+    });

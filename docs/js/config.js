@@ -30,22 +30,31 @@ requirejs.config({
 
         /* Views */
         // main
-        main_view: 'app/views/main/js/main-view',
-        drawer_view: 'app/views/main/js/drawer-menu-view',
-        navbar_view: 'app/views/main/js/navbar-view',
+        main_view: 'app/views/main/main-view',
+        drawer_view: 'app/views/main/drawer-menu-view',
+        navbar_view: 'app/views/main/navbar-view',
 
         // locations
-        locations_detail_view: 'app/views/locations/js/locations-detail-view',
-        locations_map_view: 'app/views/locations/js/locations-map-view',
-        locations_view: 'app/views/locations/js/locations-view',
+        locations_detail_view: 'app/views/locations/locations-detail-view',
+        locations_map_view: 'app/views/locations/locations-map-view',
+        locations_view: 'app/views/locations/locations-view',
 
         // settings
-        settings_view: 'app/views/settings/js/settings-view',
+        settings_view: 'app/views/settings/settings-view',
 
         // times
-        tracker_view: 'app/views/times/js/tracker-view',
-        times_detail_view: 'app/views/times/js/times-detail-view'
+        tracker_view: 'app/views/times/tracker-view',
+        times_detail_view: 'app/views/times/times-detail-view',
 
+        // utils
+        constants: 'constants'
+
+    },
+
+    shim: {
+        'underscore': {
+            exports: '_'
+        }
     }
 
 });

@@ -1,11 +1,14 @@
-var log = function(text) {
-    console.log(text);
-    alert(text);
-};
+define([
+        'jquery',
+        'main_controller',
+        'constants'
+        /*, 'app_controller', 
+            'locations_controller', 
+            'times_controller'*/
+    ],
+    function($, main, times, CONSTANTS) {
+        main.initialize();
+        //alert("PLEASE GIVE US A SECOND TO LOAD YOUR STUFF!");
 
-define(['jquery', 'main_controller' /*, 'main_controller', 'locations_controller', 'times_controller'*/ ], function($, _main, times) {
-
-    log("PLEASE GIVE US A SECOND TO LOAD YOUR STUFF!");
-
-    $.hideLoading();
-});
+        $.hideLoading();
+    });
