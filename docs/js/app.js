@@ -8,6 +8,4 @@ define(['jquery', 'main_controller' /*, 'main_controller', 'locations_controller
     log("PLEASE GIVE US A SECOND TO LOAD YOUR STUFF!");
 
     $.hideLoading();
-
-
 });
