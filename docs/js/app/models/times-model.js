@@ -8,7 +8,7 @@ define(['jquery', 'backbone', 'underscore'], function($, Backbone, _) {
                 inTimeMS: "",
                 outTime: "",
                 outTimeMS: "",
-                date: "",
+                date: "Today",
                 shift: "",
                 fullDate: "",
                 comment: "good stuff bro!"

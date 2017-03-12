@@ -1,5 +1,15 @@
-define(['times_model', 'tracker_view', 'times_detail_view'],
-    function(timesModel, trackerView, timesDetailView) {
+// More description
 
-        return this;
+define(['jquery', 'backbone', 'underscore', 'times_model', 'times_detail_view'],
+    function($, backbone, _, timesModel, TimesDetailView) {
+
+        var initialize = function() {
+            $(document).ready(function() {
+                new TimesDetailView().render();
+            });
+        };
+
+        return {
+            initialize: initialize
+        };
     });

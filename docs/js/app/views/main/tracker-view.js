@@ -1,0 +1,36 @@
+// More description
+
+define([
+        'jquery',
+        'backbone',
+        'underscore',
+        'times_model',
+        'util'
+    ],
+    function($, Backbone, _, Times, tpl) {
+
+        var TrackerView = Backbone.View.extend({
+            model: new Times(),
+            el: '#main',
+            events: {
+                'click #start': 'onClickStart',
+                'click #finish': 'onClickFinish'
+            },
+            onClickStart: function() {
+                console.log("You clicked start");
+                // var date = new Date();
+                // postStartTime();
+            },
+            onClickFinish: function() {
+                console.log("You clicked finish");
+            },
+            initialize: function() {
+                this.template = _.template(tpl.get('tracker-view-template'));
+            },
+            render: function() {
+                this.$el.html(this.template(this.model.toJSON()));
+                return this;
+            }
+        });
+        return TrackerView;
+    });

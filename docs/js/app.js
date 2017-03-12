@@ -1,14 +1,18 @@
 define([
         'jquery',
         'main_controller',
-        'constants'
+        'constants',
+        'util'
         /*, 'app_controller', 
             'locations_controller', 
             'times_controller'*/
     ],
-    function($, main, times, CONSTANTS) {
-        main.initialize();
-        alert("PLEASE GIVE US A SECOND TO LOAD YOUR STUFF!");
+    function($, main, CONSTANTS, tpl) {
+        console.log(tpl);
+        tpl.loadTemplates(['tracker-view', 'navbar-view', 'times-detail-view', 'times-list-view'], function() {
 
-        $.hideLoading();
+            main.initialize();
+            alert("PLEASE GIVE US A SECOND TO LOAD YOUR STUFF!");
+            $.hideLoading();
+        });
     });

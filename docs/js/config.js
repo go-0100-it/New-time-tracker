@@ -15,6 +15,7 @@ requirejs.config({
         backbone: 'libs/backbone.min',
         firebase_app: 'https://www.gstatic.com/firebasejs/3.6.10/firebase-app',
         firebase_data_base: 'https://www.gstatic.com/firebasejs/3.6.10/firebase-database',
+        util: 'util',
         app: 'app',
 
         /* Controllers */
@@ -26,6 +27,7 @@ requirejs.config({
         /* Models */
         app_data_model: 'app/models/app-data-model',
         locations_model: 'app/models/locations-model',
+        navbar_model: 'app/models/navbar-model',
         times_model: 'app/models/times-model',
 
         /* Views */
@@ -33,6 +35,8 @@ requirejs.config({
         main_view: 'app/views/main/main-view',
         drawer_view: 'app/views/main/drawer-menu-view',
         navbar_view: 'app/views/main/navbar-view',
+        dropdown_view: 'app.views/main/dropdown-view',
+        tracker_view: 'app/views/main/tracker-view',
 
         // locations
         locations_detail_view: 'app/views/locations/locations-detail-view',
@@ -43,7 +47,6 @@ requirejs.config({
         settings_view: 'app/views/settings/settings-view',
 
         // times
-        tracker_view: 'app/views/times/tracker-view',
         times_detail_view: 'app/views/times/times-detail-view',
 
         // utils
@@ -62,7 +65,7 @@ requirejs.config({
 requirejs(['jquery'], function($) {
     requirejs(['loading', 'jq_loading'], function() {
         $.showLoading({ name: 'jump-pulse', allowHide: false });
-        requirejs(['app', 'underscore', 'backbone', 'firebase_app', 'firebase_data_base'], function(app, underscore, backbone, fb_app, fbdb) {
+        requirejs(['app', 'underscore', 'backbone', 'firebase_app', 'firebase_data_base', 'util'], function(app, underscore, backbone, fb_app, fbdb) {
             // Initialize Firebase
             var configFB = {
                 apiKey: "AIzaSyBpHxEFisGuyYTf-X3GNUR-eW3KSCYlfOY",

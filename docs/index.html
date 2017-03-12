@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="css/main/dropdown-menu.css">
     <link rel="stylesheet" type="text/css" href="css/main/main-view.css">
     <link rel="stylesheet" type="text/css" href="css/main/navbar-view.css">
-    <link rel="stylesheet" type="text/css" href="css/times/tracker-view.css">
+    <link rel="stylesheet" type="text/css" href="css/main/tracker-view.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/loading.min.css">
 </head>
@@ -25,7 +25,34 @@
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <nav class="nav-bar">
+    <nav class="nav-bar" id="nav"></nav>
+    <div class="container" id="main"></div>
+
+    <!--    
+________________________TEMPLATES_______________________ 
+========================================================       
+-->
+    <!--___________________TRACKER VIEW_____________________-->
+    <script type="text/template" id="tracker-view-template">
+        <section class="input-container">
+            <div class="input-section">
+                <div class="shift-title">Shift type:</div>
+                <select id="shift-type">
+                            <option value="DAYS">DAYS</option>
+                            <option value="AFTERNOONS">AFTERNOONS</option>
+                            <option value="NIGHTS">NIGHTS</option>
+                            <option value="WEEKEND">WEEKEND</option>
+                        </select>
+                <input class="time" id="date" type="text" placeholder="Date" value="<%= date %>"><input class="time" id="inTime" type="text" placeholder="In Time" value="<%= inTime %>"><input class="time" id="outTime" type="text" placeholder="Out Time">
+                <textarea id="text" type="text" placeholder="Message"><%= comment %></textarea><br/>
+                <button id="start">Start</button><button id="finish">Finish</button><button id="new">Enter New Time</button><br/>
+                <hr/>
+            </div>
+        </section>
+    </script>
+
+    <!--___________________NAVBAR VIEW_____________________-->
+    <script type="text/template" id="navbar-view-template">
         <div class="gps-icon-container">
             <img id="gps" src="res/images/location_off.png" class="gps-icon" alt="GPS icon">
         </div>
@@ -42,26 +69,8 @@
                 <a id="settings" class="dropdown-content-link">Settings</a>
             </div>
         </div>
-    </nav>
-    <div class="container" id="main">
-    </div>
-    <script type="text/template" id="tracker-view-template">
-        <section class="input-container">
-            <div class="input-section">
-                <div class="shift-title">Shift type:</div>
-                <select id="shift-type">
-                            <option value="DAYS">DAYS</option>
-                            <option value="AFTERNOONS">AFTERNOONS</option>
-                            <option value="NIGHTS">NIGHTS</option>
-                            <option value="WEEKEND">WEEKEND</option>
-                        </select>
-                <input class="time" id="date" type="text" placeholder="Date"><input class="time" id="inTime" type="text" placeholder="In Time"><input class="time" id="outTime" type="text" placeholder="Out Time">
-                <textarea id="text" type="text" placeholder="Message"><%= comment %></textarea><br/>
-                <button id="start">Start</button><button id="finish">Finish</button><button id="new">Enter New Time</button><br/>
-                <hr/>
-            </div>
-        </section>
     </script>
+
 </body>
 
 </html>
