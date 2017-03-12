@@ -25,7 +25,7 @@ define([
                 console.log("You clicked finish");
             },
             initialize: function() {
-                this.template = _.template(tpl.get('tracker-view-template'));
+                this.template = _.template(tpl.get('tracker-view'));
             },
             render: function() {
                 this.$el.html(this.template(this.model.toJSON()));
