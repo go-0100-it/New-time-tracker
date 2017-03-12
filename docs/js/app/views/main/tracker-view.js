@@ -13,15 +13,23 @@ define([
             el: '#main',
             events: {
                 'click #start': 'onClickStart',
-                'click #finish': 'onClickFinish'
+                'click #finish': 'onClickFinish',
+                'click #gps': 'onClickGPS',
+                'click #options-menu': 'onClickOptions'
             },
             onClickStart: function() {
-                console.log("You clicked start");
+                alert("You clicked start");
                 // var date = new Date();
                 // postStartTime();
             },
             onClickFinish: function() {
-                console.log("You clicked finish");
+                alert("You clicked finish");
+            },
+            onClickGPS: function () {
+                alert("You clicked GPS");
+            },
+            onClickOptions: function () {
+                alert ("You clicked options");
             },
             initialize: function() {
                 this.template = _.template($('#tracker-view-template').html());
