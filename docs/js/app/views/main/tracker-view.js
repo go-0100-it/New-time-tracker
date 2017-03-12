@@ -4,10 +4,9 @@ define([
         'jquery',
         'backbone',
         'underscore',
-        'times_model',
-        'util'
+        'times_model'
     ],
-    function($, Backbone, _, Times, tpl) {
+    function($, Backbone, _, Times) {
 
         var TrackerView = Backbone.View.extend({
             model: new Times(),
@@ -25,7 +24,7 @@ define([
                 console.log("You clicked finish");
             },
             initialize: function() {
-                this.template = _.template(tpl.get('tracker-view'));
+                this.template = _.template($('#tracker-view-template').html());
             },
             render: function() {
                 this.$el.html(this.template(this.model.toJSON()));
