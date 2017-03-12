@@ -12,10 +12,10 @@ define([
                 'click #options-menu-btn': 'onClickOptions'
             },
             onClickGPS: function() {
-                console.log('You clicked the GPS icon');
+                alert('You clicked the GPS icon');
             },
             onClickOptions: function() {
-                console.log('You clicked the Options menu icon');
+                alert('You clicked the Options menu icon');
             },
             initialize: function() {
                 this.template = _.template($('#navbar-view-template').html());
