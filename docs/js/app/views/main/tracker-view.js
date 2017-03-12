@@ -13,9 +13,7 @@ define([
             el: '#main',
             events: {
                 'click #start': 'onClickStart',
-                'click #finish': 'onClickFinish',
-                'click #gps': 'onClickGPS',
-                'click #options-menu-btn': 'onClickOptions'
+                'click #finish': 'onClickFinish'
             },
             onClickStart: function() {
                 alert("You clicked start");
@@ -24,12 +22,6 @@ define([
             },
             onClickFinish: function() {
                 alert("You clicked finish");
-            },
-            onClickGPS: function () {
-                alert("You clicked GPS");
-            },
-            onClickOptions: function () {
-                alert ("You clicked options");
             },
             initialize: function() {
                 this.template = _.template($('#tracker-view-template').html());
