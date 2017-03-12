@@ -15,7 +15,7 @@ define([
                 'click #start': 'onClickStart',
                 'click #finish': 'onClickFinish',
                 'click #gps': 'onClickGPS',
-                'click #options-menu': 'onClickOptions'
+                'click #options-menu-btn': 'onClickOptions'
             },
             onClickStart: function() {
                 alert("You clicked start");
