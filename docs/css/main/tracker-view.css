@@ -1,4 +1,3 @@
-
 .input-container {
     padding-top: 10px;
     height: 480px;
@@ -177,7 +176,7 @@ hr {
         width: 65%;
         font-size: 0.9em;
     }
-    #date {
+    #date-input {
         width: 90%;
     }
     .time {

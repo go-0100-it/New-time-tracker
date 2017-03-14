@@ -8,6 +8,14 @@
     padding: 20px 0;
 }
 
+.times-list {
+    list-style: none;
+    display: block;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
 .hide {
     display: none;
 }
@@ -28,7 +36,7 @@
     display: inline-block;
     width: 20.5%;
     font-size: 1.1em;
-    margin: 5px 0.5%;
+    margin: 5px 0;
     border-radius: 8px;
     background: #ebe7e7;
     padding: 10px 0;
@@ -41,7 +49,7 @@
     display: inline-block;
     width: 8%;
     font-size: 1.1em;
-    margin: 5px 0.5% 5px 0;
+    margin: 5px 0% 5px 0;
     border-radius: 8px;
     background: #ebe7e7;
     padding: 10px 0;
@@ -79,7 +87,7 @@
     .out-time {
         width: 32.33%;
         font-size: 1em;
-        margin: 0 1% 0 0;
+        margin: 0;
     }
     .total-hrs {
         width: 32.33%;
@@ -89,12 +97,16 @@
 }
 
 @media only screen and (max-width: 500px) {
+    .times-list-item {
+        width: 95%;
+        margin: 0 auto;
+    }
     .date-span {
-        width: 82%;
+        width: 85%;
         font-size: 1em;
     }
     .shift-span {
-        width: 15%;
+        width: 12%;
         font-size: 1em;
     }
     .in-time,

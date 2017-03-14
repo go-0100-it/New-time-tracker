@@ -1,19 +1,29 @@
 // More description
 
 define(['jquery', 'backbone', 'underscore'], function($, Backbone, _) {
+
     var Times = Backbone.Model.extend({
         defaults: function() {
+
             return {
-                inTime: "",
-                inTimeMS: "",
-                outTime: "",
-                outTimeMS: "",
-                date: "Today",
-                shift: "",
-                fullDate: "",
-                comment: "good stuff bro!"
+                comment: '',
+                inTime: '',
+                outTime: '',
+                shift: '',
+                date: 'today'
             };
         }
     });
-    return Times;
+
+    var TimeObj = function(data) {
+        this.shift = data.shift;
+        this.date = data.date;
+
+        return this;
+    };
+
+    return {
+        Times: Times,
+        TimeObj: TimeObj
+    };
 });

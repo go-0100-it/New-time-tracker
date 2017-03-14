@@ -13,6 +13,7 @@ requirejs.config({
         loading: 'libs/loading.min',
         underscore: 'libs/underscore.js-1.8.3.min',
         backbone: 'libs/backbone.min',
+        backbonefire: 'libs/backbonefire',
         firebase_app: 'https://www.gstatic.com/firebasejs/3.6.10/firebase-app',
         firebase_data_base: 'https://www.gstatic.com/firebasejs/3.6.10/firebase-database',
         util: 'util',
@@ -23,12 +24,14 @@ requirejs.config({
         main_controller: 'app/controllers/main-controller',
         locations_controller: 'app/controllers/locations-controller',
         times_controller: 'app/controllers/times-controller',
+        firebase_controller: 'app/controllers/firebase-controller',
 
         /* Models */
         app_data_model: 'app/models/app-data-model',
         locations_model: 'app/models/locations-model',
         navbar_model: 'app/models/navbar-model',
         times_model: 'app/models/times-model',
+        times_collection: 'app/models/times-collection',
 
         /* Views */
         // main
@@ -47,7 +50,9 @@ requirejs.config({
         settings_view: 'app/views/settings/settings-view',
 
         // times
-        times_detail_view: 'app/views/times/times-detail-view',
+        times_list_view: 'app/views/times/times-list-view',
+        times_item_view: 'app/views/times/times-item-view',
+        times_view: 'app/views/times/times-view',
 
         // utils
         constants: 'constants'
