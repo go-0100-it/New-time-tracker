@@ -16,18 +16,23 @@
                  'click #settings': 'onClickSettings'
              },
              onClickTracker: function() {
+                 $('#drawer-menu-check').prop('checked', false);
                  alert('You clicked the Tracker item');
              },
              onClickManageTimes: function() {
+                 $('#drawer-menu-check').prop('checked', false);
                  alert('You clicked the Manage TImes item');
              },
              onClickLocations: function() {
+                 $('#drawer-menu-check').prop('checked', false);
                  alert('You clicked the Manage Locations item');
              },
              onClickTimesList: function() {
+                 $('#drawer-menu-check').prop('checked', false);
                  alert('You clicked the Times List item');
              },
              onClickSettings: function() {
+                 $('#drawer-menu-check').prop('checked', false);
                  alert('You clicked the Settings item');
              },
              initialize: function() {
