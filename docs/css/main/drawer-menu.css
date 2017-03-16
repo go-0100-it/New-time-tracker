@@ -1,0 +1,85 @@
+.drawer-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    width: 300px;
+    background: #313030;
+    transition: all 0.6s ease-in-out;
+    -webkit-transition: all 0.6s ease-in-out;
+    -ms-transition: all 0.6s ease-in-out;
+    -moz-transition: all 0.6s ease-in-out;
+    -o-transition: all 0.6s ease-in-out;
+}
+
+.drawer-toggler {
+    text-align: center;
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    top: 18px;
+    left: 30px;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    color: #252525;
+    background: #7e5f46;
+    font-size: 50px;
+    font-weight: 900;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.6s ease-in-out;
+    -webkit-transition: all 0.6s ease-in-out;
+    -ms-transition: all 0.6s ease-in-out;
+    -moz-transition: all 0.6s ease-in-out;
+    -o-transition: all 0.6s ease-in-out;
+}
+
+.drawer-toggler:hover {
+    background: #8c6e55;
+    color: #444;
+}
+
+.drawer-menu-header {
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    padding: 15px 0;
+    margin: 0;
+}
+
+.drawer-menu-list {
+    list-style: none;
+    padding: 0;
+}
+
+.drawer-li {
+    padding: 25px 20px;
+    color: #c7c7c7;
+    text-align: left;
+    font-size: 28px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.drawer-li:hover {
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    background: #404040;
+}
+
+#drawer-menu-check {
+    display: none;
+}
+
+#drawer-menu-check:checked+.drawer-menu,
+drawer-toggler {
+    box-shadow: 0 2.5px 10px #111111;
+    left: 0;
+}
+
+#drawer-menu-check:checked~.drawer-toggler {
+    left: 280px;
+    box-shadow: 0 2.5px 10px #111111;
+}

@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="css/main/dropdown-menu.css">
     <link rel="stylesheet" type="text/css" href="css/main/main-view.css">
     <link rel="stylesheet" type="text/css" href="css/main/navbar-view.css">
+    <link rel="stylesheet" type="text/css" href="css/main/drawer-menu.css">
     <link rel="stylesheet" type="text/css" href="css/main/tracker-view.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/loading.min.css">
@@ -27,6 +28,19 @@
         <![endif]-->
     <nav class="nav-bar" id="nav"></nav>
     <div class="container" id="main"></div>
+
+    <input type="checkbox" id="drawer-menu-check">
+    <div class="drawer-menu">
+        <ul class="drawer-menu-list">
+            <header class="drawer-menu-header">Menu</header>
+            <li class="drawer-li">Tracker</li>
+            <li class="drawer-li">Manage Times</li>
+            <li class="drawer-li">Manage Locations</li>
+            <li class="drawer-li">Show Times</li>
+            <li class="drawer-li">Settings</li>
+        </ul>
+    </div>
+    <label for="drawer-menu-check" class="drawer-toggler">≡</label>
     <!--    
 ________________________TEMPLATES_______________________ 
 ========================================================       
@@ -53,14 +67,13 @@ ________________________TEMPLATES_______________________
     <!--___________________NAVBAR VIEW_____________________-->
     <script type="text/template" id="navbar-view-template">
         <div class="gps-icon-container">
-            <img id="gps" src="res/images/location_off.png" class="gps-icon" alt="GPS icon">
+            <!-- <img id="gps" src="res/images/location_off.png" class="gps-icon" alt="GPS icon"> -->
         </div>
         <div style="display: inline-block;">
             <h4 class="header-h1">Time Tracker</h4>
         </div>
         <div class="dropdown">
-            <div id="options-menu-btn" class="dropbtn"><span class="glyphicon glyphicon-option-vertical"></span>
-            </div>
+            <label id="options-menu-btn" class="dropbtn">⁝</label>
             <div class="dropdown-content dropdown-hide">
                 <a id="manage-times" class="dropdown-content-link">Manage Times</a>
                 <a id="manage-locations" class="dropdown-content-link">Manage Locations</a>
