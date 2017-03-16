@@ -17,12 +17,16 @@ define([
                 'click #finish': 'onClickFinish'
             },
             onClickStart: function() {
-                alert("You clicked start");
-                // var date = new Date();
-                // postStartTime();
+                this.onClick('Start');
             },
             onClickFinish: function() {
-                alert("You clicked finish");
+                this.onClick('Finish');
+            },
+            onClick: function(button) {
+                alert("You clicked " + button);
+                $(this).trigger('clickFromTracker', function() {
+                    alert('The "' + button + ' Button Click" event was received');
+                });
             },
             initialize: function() {
                 this.template = _.template(tpl.get('tracker-view'));

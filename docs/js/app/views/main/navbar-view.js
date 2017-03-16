@@ -12,11 +12,11 @@ define([
                 'click #gps': 'onClickGPS',
                 'click #options-menu-btn': 'onClickOptions'
             },
-            onClickGPS: function() {
-                alert('You clicked the GPS icon');
-            },
             onClickOptions: function() {
                 alert('You clicked the Options menu icon');
+                $(this).trigger('clickFromNav', function() {
+                    alert('The "Options Menu Button Click" event was received');
+                });
                 //timesController.createTimesView();
                 //timesController.getTimesList();
             },
