@@ -28,19 +28,8 @@
         <![endif]-->
     <nav class="nav-bar" id="nav"></nav>
     <div class="container" id="main"></div>
+    <div class="drawer-menu-contaier" id="drawer-menu-container"></div>
 
-    <input type="checkbox" id="drawer-menu-check">
-    <div class="drawer-menu">
-        <ul class="drawer-menu-list">
-            <header class="drawer-menu-header">Menu</header>
-            <li class="drawer-li">Tracker</li>
-            <li class="drawer-li">Manage Times</li>
-            <li class="drawer-li">Manage Locations</li>
-            <li class="drawer-li">Show Times</li>
-            <li class="drawer-li">Settings</li>
-        </ul>
-    </div>
-    <label for="drawer-menu-check" class="drawer-toggler">≡</label>
     <!--    
 ________________________TEMPLATES_______________________ 
 ========================================================       
@@ -81,6 +70,22 @@ ________________________TEMPLATES_______________________
                 <a id="settings" class="dropdown-content-link">Settings</a>
             </div>
         </div>
+    </script>
+
+    <!--___________________DRAWER MENU VIEW_____________________-->
+    <script type="text/template" id="drawer-menu-template">
+        <input type="checkbox" id="drawer-menu-check">
+        <div class="drawer-menu">
+            <ul class="drawer-menu-list">
+                <header class="drawer-menu-header">Menu</header>
+                <li class="drawer-li" id="tracker">Tracker</li>
+                <li class="drawer-li" id="manage-times">Manage Times</li>
+                <li class="drawer-li" id="manage-locations">Manage Locations</li>
+                <li class="drawer-li" id="times-list">Times List</li>
+                <li class="drawer-li" id="settings">Settings</li>
+            </ul>
+        </div>
+        <label for="drawer-menu-check" class="drawer-toggler"><span class="drawer-menu-span">≡</span></label>
     </script>
 
     <!--__________________TIMES DETAIL VIEW________________-->

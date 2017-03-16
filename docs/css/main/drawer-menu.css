@@ -4,7 +4,7 @@
     left: -300px;
     bottom: 0;
     right: 0;
-    z-index: 10;
+    z-index: 15;
     width: 300px;
     background: #313030;
     transition: all 0.6s ease-in-out;
@@ -23,7 +23,7 @@
     left: 30px;
     bottom: 0;
     right: 0;
-    z-index: 10;
+    z-index: 15;
     color: #252525;
     background: #7e5f46;
     font-size: 50px;
@@ -40,6 +40,15 @@
 .drawer-toggler:hover {
     background: #8c6e55;
     color: #444;
+}
+
+.drawer-menu-span {
+    display: inline-block;
+    transition: all 0.6s ease-in-out;
+    -webkit-transition: all 0.6s ease-in-out;
+    -ms-transition: all 0.6s ease-in-out;
+    -moz-transition: all 0.6s ease-in-out;
+    -o-transition: all 0.6s ease-in-out;
 }
 
 .drawer-menu-header {
@@ -82,4 +91,7 @@ drawer-toggler {
 #drawer-menu-check:checked~.drawer-toggler {
     left: 270px;
     box-shadow: 0 2.5px 10px #111111;
+    transform: rotate(90deg);
 }
+
+#drawer-menu-check:checked~.drawer-toggler>.drawer-menu-span {}

@@ -2,9 +2,10 @@ define([
         'jquery',
         'backbone',
         'underscore',
-        'times_controller'
+        'times_controller',
+        'util'
     ],
-    function($, Backbone, _, timesController) {
+    function($, Backbone, _, timesController, tpl) {
         var NavbarView = Backbone.View.extend({
             el: '#nav',
             events: {
@@ -16,11 +17,11 @@ define([
             },
             onClickOptions: function() {
                 alert('You clicked the Options menu icon');
-                timesController.createTimesView();
-                timesController.getTimesList();
+                //timesController.createTimesView();
+                //timesController.getTimesList();
             },
             initialize: function() {
-                this.template = _.template($('#navbar-view-template').html());
+                this.template = _.template(tpl.get('navbar-view'));
             },
             render: function() {
                 this.$el.html(this.template());
