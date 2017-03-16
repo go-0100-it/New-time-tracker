@@ -80,6 +80,6 @@ drawer-toggler {
 }
 
 #drawer-menu-check:checked~.drawer-toggler {
-    left: 280px;
+    left: 270px;
     box-shadow: 0 2.5px 10px #111111;
 }
