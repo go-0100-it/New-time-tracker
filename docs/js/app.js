@@ -8,10 +8,8 @@ define([
             'times_controller'*/
     ],
     function($, main, CONSTANTS, tpl) {
-        tpl.loadTemplates(['tracker-view', 'navbar-view', 'drawer-menu-view'], function() {
+        tpl.loadTemplates(['tracker-view', 'navbar-view', 'drawer-menu-view', 'times-list-view', 'times-list-item'], function() {
             main.initialize();
-            alert("PLEASE GIVE US A SECOND TO LOAD YOUR STUFF!");
-            $.hideLoading();
         });
 
     });

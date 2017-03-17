@@ -4,9 +4,10 @@ define([
         'jquery',
         'backbone',
         'underscore',
-        'times_model'
+        'times_model',
+        'util'
     ],
-    function($, Backbone, _, Times) {
+    function($, Backbone, _, Times, tpl) {
 
         var TimesItemView = Backbone.View.extend({
             model: new Times.Times(),
@@ -42,7 +43,7 @@ define([
                 console.log("You clicked the hrs");
             },
             initialize: function() {
-                this.template = _.template($('#times-list-item-template').html());
+                this.template = _.template(tpl.get('times-list-item'));
             },
             render: function() {
                 this.$el.html(this.template(this.model.toJSON()));

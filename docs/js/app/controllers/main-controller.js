@@ -1,7 +1,7 @@
 // More description
 
-define(['jquery', 'backbone', 'underscore', 'app_data_model', 'drawer_view', 'navbar_view', 'tracker_view'],
-    function($, backbone, _, appDataModel, DrawerView, NavbarView, TrackerView) {
+define(['jquery', 'backbone', 'underscore', 'app_data_model', 'drawer_view', 'navbar_view', 'tracker_view', 'times_controller'],
+    function($, backbone, _, appDataModel, DrawerView, NavbarView, TrackerView, TimesController) {
 
         var initialize = function() {
             $(document).ready(function() {
@@ -14,7 +14,7 @@ define(['jquery', 'backbone', 'underscore', 'app_data_model', 'drawer_view', 'na
                     // Initialize Dropdown View
                 });
 
-                $(drawerMenu).on('clickFromDrawerMenu', function(evt, clickedElId) {
+                $(drawerMenu).on('drawerEventDispense', function(evt, clickedElId) {
                     switch (clickedElId) {
                         case 'settings':
                             if (selected !== 'settings') {
@@ -36,8 +36,10 @@ define(['jquery', 'backbone', 'underscore', 'app_data_model', 'drawer_view', 'na
                             break;
                         case 'times-list':
                             if (selected !== 'times-list') {
+                                $.showLoading({ name: 'jump-pulse', allowHide: false });
                                 selected = 'times-list';
-                                // Initialize Times controller
+                                TimesController.createTimesView();
+                                TimesController.getTimesList();
                             }
                             break;
                         case 'tracker':
@@ -56,6 +58,9 @@ define(['jquery', 'backbone', 'underscore', 'app_data_model', 'drawer_view', 'na
                 });
             });
         };
+        setTimeout(function() {
+            $.hideLoading();
+        }, 2000);
 
         return {
             initialize: initialize

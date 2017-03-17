@@ -13,6 +13,7 @@ define(['jquery', 'backbone', 'underscore', 'times_model', 'times_collection', '
 
             return firebase.database().ref("times").once('value').then(function(snapshot) {
                 renderTimesList(snapshot.val());
+                $.hideLoading({ name: 'jump-pulse' });
             });
         };
 
