@@ -16,59 +16,36 @@
                  'click #settings': 'onClickSettings'
              },
              onClickTracker: function() {
-
-                 $('#drawer-menu-check').prop('checked', false);
-
-                 alert('You clicked the Tracker item');
-
-                 $(this).trigger('clickFromDrawerMenu', function() {
-                     alert('The "Tracker Item Click" event was received');
-                 });
-
+                 this.onClick('tracker');
              },
              onClickManageTimes: function() {
-
-                 $('#drawer-menu-check').prop('checked', false);
-
-                 alert('You clicked the Manage Times item');
-
-                 $(this).trigger('clickFromDrawerMenu', function() {
-                     alert('The "The Manage Times Item Click" event was received');
-                 });
-
+                 this.onClick('manage-times');
              },
              onClickLocations: function() {
-
-                 $('#drawer-menu-check').prop('checked', false);
-
-                 alert('You clicked the Manage Locations item');
-
-                 $(this).trigger('clickFromDrawerMenu', function() {
-                     alert('The "The Manage Locations Item Click" event was received');
-                 });
-
+                 this.onClick('manage-locations');
              },
              onClickTimesList: function() {
-
-                 $('#drawer-menu-check').prop('checked', false);
-
-                 alert('You clicked the Times List item');
-
-                 $(this).trigger('clickFromDrawerMenu', function() {
-                     alert('The "The Times List Item Click" event was received');
-                 });
-
+                 this.onClick('times-list');
              },
              onClickSettings: function() {
+                 this.onClick('settings');
+             },
+             selectView: function(el) {
+                 var array = ['#tracker', '#manage-times', '#manage-locations', '#times-list', '#settings']; // Test
+                 var search_term = '#' + el;
 
+                 for (var i = array.length - 1; i >= 0; i--) {
+                     if (array[i] === search_term) {
+                         $(array[i]).addClass('drawer-menu-item-selected');
+                     } else {
+                         $(array[i]).removeClass('drawer-menu-item-selected');
+                     }
+                 }
+             },
+             onClick: function(el) {
                  $('#drawer-menu-check').prop('checked', false);
-
-                 alert('You clicked the Settings item');
-
-                 $(this).trigger('clickFromDrawerMenu', function() {
-                     alert('The "Settings Item Click" event was received');
-                 });
-
+                 this.selectView(el);
+                 $(this).trigger('clickFromDrawerMenu', el);
              },
              initialize: function() {
                  this.template = _.template(tpl.get('drawer-menu-view'));

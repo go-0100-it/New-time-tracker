@@ -24,9 +24,7 @@ define([
             },
             onClick: function(button) {
                 alert("You clicked " + button);
-                $(this).trigger('clickFromTracker', function() {
-                    alert('The "' + button + ' Button Click" event was received');
-                });
+                $(this).trigger('clickFromTracker', button);
             },
             initialize: function() {
                 this.template = _.template(tpl.get('tracker-view'));

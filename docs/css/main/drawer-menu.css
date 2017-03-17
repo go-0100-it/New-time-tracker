@@ -95,3 +95,7 @@ drawer-toggler {
 }
 
 #drawer-menu-check:checked~.drawer-toggler>.drawer-menu-span {}
+
+.drawer-menu-item-selected {
+    background: #404040;
+}

@@ -13,10 +13,11 @@ define([
                 'click #options-menu-btn': 'onClickOptions'
             },
             onClickOptions: function() {
-                alert('You clicked the Options menu icon');
-                $(this).trigger('clickFromNav', function() {
-                    alert('The "Options Menu Button Click" event was received');
-                });
+                this.onClick('Options Menu');
+            },
+            onClick: function(button) {
+                alert('You clicked the ' + button + ' button');
+                $(this).trigger('clickFromNav', button);
                 //timesController.createTimesView();
                 //timesController.getTimesList();
             },
