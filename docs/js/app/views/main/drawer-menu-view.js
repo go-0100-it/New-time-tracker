@@ -12,7 +12,7 @@
                  'click #tracker': 'onClickTracker',
                  'click #manage-times': 'onClickManageTimes',
                  'click #manage-locations': 'onClickLocations',
-                 'click #times-list': 'onClickTimesList',
+                 'click #time-list': 'onClickTimesList',
                  'click #settings': 'onClickSettings'
              },
              onClickTracker: function() {
@@ -25,14 +25,14 @@
                  this.selectView('manage-locations');
              },
              onClickTimesList: function() {
-                 this.selectView('times-list');
+                 this.selectView('time-list');
              },
              onClickSettings: function() {
                  this.selectView('settings');
              },
              selectView: function(el) {
                  $('#drawer-menu-check').prop('checked', false);
-                 var array = ['#tracker', '#manage-times', '#manage-locations', '#times-list', '#settings']; // Test
+                 var array = ['#tracker', '#manage-times', '#manage-locations', '#time-list', '#settings']; // Test
                  var search_term = '#' + el;
                  for (var i = array.length - 1; i >= 0; i--) {
                      if (array[i] === search_term) {

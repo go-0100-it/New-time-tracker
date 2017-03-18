@@ -4,8 +4,10 @@ define(['jquery', 'backbone', 'underscore', 'times_model', 'times_collection', '
     function($, backbone, _, Times, TimesCollection, TimesView, TimesListView, TimesItemView, firebaseDB, timesController) {
 
         var createTimesView = function() {
-            $(document).ready(function() {
-                var timesView = new TimesView().render();
+            require(['css!css/times/times-detail-view.css'], function() {
+                $(document).ready(function() {
+                    var timesView = new TimesView().render();
+                });
             });
         };
 
@@ -19,17 +21,16 @@ define(['jquery', 'backbone', 'underscore', 'times_model', 'times_collection', '
 
 
         var renderTimesList = function(times) {
-            require(['css!css/times/times-detail-view.css'], function() {
-                var data = new TimesCollection([]);
+            
+            var data = new TimesCollection([]);
 
-                for (var time in times) {
-                    var newTime = new Times.Times(times[time]);
-                    data.add(newTime);
-                }
+            for (var time in times) {
+                var newTime = new Times.Times(times[time]);
+                data.add(newTime);
+            }
 
-                var timesList = new TimesListView({ model: data });
-                timesList.render();
-            });
+            var timesList = new TimesListView({ model: data });
+            timesList.render();
         };
 
         return {

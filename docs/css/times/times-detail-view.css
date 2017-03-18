@@ -8,8 +8,8 @@
     padding: 20px 0;
 }
 
-.times-list {
-    list-style: none;
+#times-list {
+    list-style-type: none;
     display: block;
     padding: 0;
     margin: 0;

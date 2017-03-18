@@ -34,10 +34,10 @@ define(['jquery', 'backbone', 'underscore', 'app_data_model', 'drawer_view', 'na
                                 // Initialize Locations Controller
                             }
                             break;
-                        case 'times-list':
-                            if (selected !== 'times-list') {
+                        case 'time-list':
+                            if (selected !== 'time-list') {
                                 $.showLoading({ name: 'jump-pulse', allowHide: false });
-                                selected = 'times-list';
+                                selected = 'time-list';
                                 TimesController.createTimesView();
                                 TimesController.getTimesList();
                             }
