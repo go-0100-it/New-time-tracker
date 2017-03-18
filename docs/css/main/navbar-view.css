@@ -51,6 +51,6 @@
 
 @media only screen and (max-width: 500px) {
     .nav-bar {
-        padding: 0 5px 15px 5px;
+        padding: 0;
     }
 }
