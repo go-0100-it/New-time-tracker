@@ -5,7 +5,7 @@
     top: 20px;
     right: 20px;
     color: #000;
-    font-size: 48px;
+    font-size: 52px;
     font-weight: 900;
     cursor: pointer;
     width: 30px;
@@ -74,17 +74,22 @@
     display: none;
 }
 
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 1300px) {
     .dropbtn {
-        font-size: 32px;
+        top: 15px;
+        font-size: 48px;
     }
 }
 
-@media only screen and (max-width: 650px) and (orientation: landscape) {
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+
+@media only screen and (max-width: 500px) {
     .dropbtn {
-        font-size: 40px;
+        font-size: 32px;
+        top: 15px;
+        right: 5px;
+        width: 40px;
+        height: 40px;
     }
 }
