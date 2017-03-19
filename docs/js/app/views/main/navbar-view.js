@@ -18,8 +18,6 @@ define([
             onClick: function(button) {
                 alert('You clicked the ' + button + ' button');
                 $(this).trigger('clickFromNav', button);
-                //timesController.createTimesView();
-                //timesController.getTimesList();
             },
             initialize: function() {
                 this.template = _.template(tpl.get('navbar-view'));

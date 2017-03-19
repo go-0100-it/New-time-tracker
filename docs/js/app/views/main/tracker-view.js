@@ -11,7 +11,7 @@ define([
 
         var TrackerView = Backbone.View.extend({
             model: new Times.Times(),
-            el: '#main',
+            el: '#trackerView',
             events: {
                 'click #start': 'onClickStart',
                 'click #finish': 'onClickFinish'
@@ -30,12 +30,10 @@ define([
                 this.template = _.template(tpl.get('tracker-view'));
             },
             render: function() {
+                console.log('rendering new tracker');
                 this.$el.html(this.template(this.model.toJSON()));
                 return this;
             },
-            remove: function() {
-                this.remove();
-            }
         });
         return TrackerView;
     });

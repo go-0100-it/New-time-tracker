@@ -3,9 +3,17 @@
 }
 
 .display-container {
+    width: 100%;
+    background-color: #a0856e;
+    box-shadow: 0 2.5px 15px #111;
+    border-radius: 10px;
     text-align: center;
     margin: 20px 0;
     padding: 20px 0;
+}
+
+.sub-title {
+    margin: 20px 0;
 }
 
 #times-list {
@@ -36,7 +44,7 @@
     display: inline-block;
     width: 20.5%;
     font-size: 1.1em;
-    margin: 5px 0;
+    margin: 4px 0;
     border-radius: 8px;
     background: #ebe7e7;
     padding: 10px 0;
@@ -49,7 +57,7 @@
     display: inline-block;
     width: 8%;
     font-size: 1.1em;
-    margin: 5px 0% 5px 0;
+    margin: 4px 0;
     border-radius: 8px;
     background: #ebe7e7;
     padding: 10px 0;
@@ -75,9 +83,12 @@
 }
 
 @media only screen and (max-width: 1300px) {
+    .sub-title {
+        margin: 5px 0;
+    }
     .date-span {
         width: 89%;
-        margin-top: 15px;
+        margin-top: 20px;
         font-size: 1.1em;
     }
     .shift-span {
@@ -97,6 +108,9 @@
 }
 
 @media only screen and (max-width: 500px) {
+    .sub-title {
+        margin: 0;
+    }
     .times-list-item {
         width: 95%;
         margin: 0 auto;

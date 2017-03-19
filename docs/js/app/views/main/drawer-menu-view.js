@@ -2,10 +2,11 @@
          'jquery',
          'backbone',
          'underscore',
+         'router',
          'util'
 
      ],
-     function($, Backbone, _, tpl) {
+     function($, Backbone, _, router, tpl) {
          var DrawerMenuView = Backbone.View.extend({
              el: '#drawer-menu-container',
              events: {
@@ -16,35 +17,33 @@
                  'click #settings': 'onClickSettings'
              },
              onClickTracker: function() {
-                 this.selectView('tracker');
+                 this.invokeRouter('#tracker');
              },
              onClickManageTimes: function() {
-                 this.selectView('manage-times');
+                 this.invokeRouter('#manage-times');
              },
              onClickLocations: function() {
-                 this.selectView('manage-locations');
+                 this.invokeRouter('#manage-locations');
              },
              onClickTimesList: function() {
-                 this.selectView('time-list');
+                 this.invokeRouter('#time-list');
              },
              onClickSettings: function() {
-                 this.selectView('settings');
+                 this.invokeRouter('#settings');
              },
-             selectView: function(el) {
+             invokeRouter: function(el) {
+                 var $li = $(el);
+                 router.navigate($li.attr('data-url'), { trigger: true });
                  $('#drawer-menu-check').prop('checked', false);
                  var array = ['#tracker', '#manage-times', '#manage-locations', '#time-list', '#settings']; // Test
-                 var search_term = '#' + el;
                  for (var i = array.length - 1; i >= 0; i--) {
-                     if (array[i] === search_term) {
+                     if (array[i] === el) {
                          $(array[i]).addClass('drawer-menu-item-selected');
                      } else {
                          $(array[i]).removeClass('drawer-menu-item-selected');
                      }
                  }
-                 this.dispenseEvent(el);
-             },
-             dispenseEvent: function(el) {
-                 $(this).trigger('drawerEventDispense', el);
+                 $(this).trigger('drawerEventDispensed', el);
              },
              initialize: function() {
                  this.template = _.template(tpl.get('drawer-menu-view'));

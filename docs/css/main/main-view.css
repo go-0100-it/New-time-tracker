@@ -5,6 +5,10 @@ body {
     text-align: center;
 }
 
+.hidden {
+    display: none;
+}
+
 .gps-icon-container {
     float: left;
     margin-top: 15px;
@@ -29,13 +33,6 @@ body {
     margin: 0 auto;
     padding-top: 120px;
     text-align: center;
-}
-
-.display-container {
-    width: 100%;
-    background-color: #a0856e;
-    box-shadow: 0 2.5px 15px #111;
-    border-radius: 10px;
 }
 
 .results {

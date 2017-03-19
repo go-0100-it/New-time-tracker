@@ -3,7 +3,7 @@
 define(['jquery', 'backbone', 'underscore'], function($, Backbone, _) {
 
     var Times = Backbone.Model.extend({
-        calcTotalHrs: function(inTime, outTime){
+        calcTotalHrs: function(inTime, outTime) {
             return Math.floor(((outTime - inTime) / (60 * 60 * 1000)) * 10) / 10;
         },
         defaults: function() {

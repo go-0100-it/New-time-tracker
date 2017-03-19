@@ -1,10 +1,7 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
+
 <html class="no-js">
-<!--<![endif]-->
+
 
 <head>
     <meta charset="utf-8">
@@ -23,86 +20,11 @@
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+
     <nav class="nav-bar" id="nav"></nav>
-    <div class="container" id="main"></div>
-
-    <!--    
-________________________TEMPLATES_______________________ 
-========================================================       
--->
-    <!--___________________TRACKER VIEW_____________________-->
-    <script type="text/template" id="tracker-view-template">
-        <section class="input-container">
-            <div class="input-section">
-                <div class="shift-title">Shift type:</div>
-                <select id="shift-type">
-                            <option value="DAYS">DAYS</option>
-                            <option value="AFTERNOONS">AFTERNOONS</option>
-                            <option value="NIGHTS">NIGHTS</option>
-                            <option value="WEEKEND">WEEKEND</option>
-                        </select>
-                <input class="time" id="date" type="text" placeholder="Date" value="<%= date %>"><input class="time" id="inTime" type="text" placeholder="In Time" value="<%= inTime %>"><input class="time" id="outTime" type="text" placeholder="Out Time">
-                <textarea id="text" type="text" placeholder="Message"><%= comment %></textarea><br/>
-                <button id="start">Start</button><button id="finish">Finish</button><button id="new">Enter New Time</button><br/>
-                <hr/>
-            </div>
-        </section>
-    </script>
-
-    <!--___________________NAVBAR VIEW_____________________-->
-    <script type="text/template" id="navbar-view-template">
-        <div class="gps-icon-container">
-            <!-- <img id="gps" src="res/images/location_off.png" class="gps-icon" alt="GPS icon"> -->
-        </div>
-        <div style="display: inline-block;">
-            <h4 class="header-h1">Time Tracker</h4>
-        </div>
-        <div class="dropdown">
-            <label id="options-menu-btn" class="dropbtn">⁝</label>
-            <div class="dropdown-content dropdown-hide">
-                <a id="manage-times" class="dropdown-content-link">Manage Times</a>
-                <a id="manage-locations" class="dropdown-content-link">Manage Locations</a>
-                <a id="show-times" class="dropdown-content-link">Show Times</a>
-                <a id="settings" class="dropdown-content-link">Settings</a>
-            </div>
-        </div>
-    </script>
-
-    <!--___________________DRAWER MENU VIEW_____________________-->
-    <script type="text/template" id="drawer-menu-template">
-        <input type="checkbox" id="drawer-menu-check">
-        <div class="drawer-menu">
-            <ul class="drawer-menu-list">
-                <header class="drawer-menu-header">Menu</header>
-                <li class="drawer-li" id="tracker">Tracker</li>
-                <li class="drawer-li" id="manage-times">Manage Times</li>
-                <li class="drawer-li" id="manage-locations">Manage Locations</li>
-                <li class="drawer-li" id="times-list">Times List</li>
-                <li class="drawer-li" id="settings">Settings</li>
-            </ul>
-        </div>
-        <label for="drawer-menu-check" class="drawer-toggler"><span class="drawer-menu-span">≡</span></label>
-    </script>
-
-    <!--__________________TIMES DETAIL VIEW________________-->
-    <script type="text/template" id="times-list-view-template">
-        <section class="display-container">
-            <ul class="times-list" id="times-list">
-            </ul>
-        </section>
-    </script>
-
-    <!--___________________TIMES LIST ITEM_________________-->
-    <script type="text/template" id="times-list-item-template">
-        <span class="shift-span" id="shift"> <%= shift %> </span>
-        <span class="date-span" id="date"><%= date %> </span>
-        <span class="in-time" id="in"><%= inTime %></span>
-        <span class="out-time" id="out"><%= outTime %> </span>
-        <span class="total-hrs" id="hrs"><%= 8.5 %> </span>
-    </script>
+    <div class="container" id="main">
+        <section class="display-container" id="display"></section>
+        <section class="input-container" id="trackerView"></section>
     </div>
 
 </body>

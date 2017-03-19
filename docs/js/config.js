@@ -16,6 +16,7 @@ requirejs.config({
         backbonefire: 'libs/backbonefire',
         firebase_app: 'https://www.gstatic.com/firebasejs/3.6.10/firebase-app',
         firebase_data_base: 'https://www.gstatic.com/firebasejs/3.6.10/firebase-database',
+        router: 'router',
         util: 'util',
         app: 'app',
 
@@ -71,7 +72,7 @@ requirejs(['jquery'], function($) {
     requirejs(['loading', 'jq_loading'], function() {
         $.showLoading({ name: 'jump-pulse', allowHide: false });
         requirejs(['app', 'underscore', 'backbone', 'firebase_app', 'util'], function(app, underscore, backbone, fb_app, fbdb) {
-            requirejs(['firebase_data_base'], function() {
+            requirejs(['firebase_data_base', 'router'], function() {
                 // Initialize Firebase
                 var configFB = {
                     apiKey: "AIzaSyBpHxEFisGuyYTf-X3GNUR-eW3KSCYlfOY",
