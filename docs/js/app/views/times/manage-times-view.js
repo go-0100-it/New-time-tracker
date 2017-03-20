@@ -4,20 +4,20 @@ define([
         'jquery',
         'backbone',
         'underscore',
-        'locations_model',
+        'times_model',
         'util'
     ],
-    function($, Backbone, _, Locations, tpl) {
+    function($, Backbone, _, Times, tpl) {
 
-        var LocationsView = Backbone.View.extend({
-            el: '#manage-locations-view',
+        var ManageTimesView = Backbone.View.extend({
+            el: '#manage-times-view',
             initialize: function() {
-                this.template = _.template(tpl.get('manage-locations-view'));
+                this.template = _.template(tpl.get('manage-times-view'));
             },
             render: function() {
                 this.$el.html(this.template());
                 return this;
             }
         });
-        return LocationsView;
+        return ManageTimesView;
     });

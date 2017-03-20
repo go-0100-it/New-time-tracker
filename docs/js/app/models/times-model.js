@@ -25,6 +25,13 @@ define(['jquery', 'backbone', 'underscore'], function($, Backbone, _) {
         return this;
     };
 
+    Times.prototype.getShiftChar = function() {
+        if (this.shift) {
+            return this.shift.charAt(0).toUpperCase();
+        }
+        return "-";
+    };
+
     return {
         Times: Times,
         TimeObj: TimeObj

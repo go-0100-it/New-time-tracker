@@ -1,6 +1,0 @@
-// More description
-
-require([], function() {
-
-
-});

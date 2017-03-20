@@ -1,8 +1,15 @@
-// More description
-
-define(['locations_model', 'locations_detail_view', 'locations_map_view', 'locations_view'],
-    function(locationsModel, locationsDetailView, locationsMapView, loactionsView) {
-
-        return this;
-    }
-);
+define([
+        'jquery',
+        'locations_model',
+        'locations_view'
+    ],
+    function($, Locations, LocationsView) {
+        var renderLocationsView = function() {
+            var locationsView = new LocationsView().render();
+            $.hideLoading();
+            return locationsView;
+        };
+        return {
+            renderLocationsView: renderLocationsView
+        };
+    });

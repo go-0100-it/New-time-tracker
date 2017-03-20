@@ -43,7 +43,6 @@ requirejs.config({
         tracker_view: 'app/views/main/tracker-view',
 
         // locations
-        locations_detail_view: 'app/views/locations/locations-detail-view',
         locations_map_view: 'app/views/locations/locations-map-view',
         locations_view: 'app/views/locations/locations-view',
 
@@ -54,6 +53,7 @@ requirejs.config({
         times_list_view: 'app/views/times/times-list-view',
         times_item_view: 'app/views/times/times-item-view',
         times_view: 'app/views/times/times-view',
+        manage_times_view: 'app/views/times/manage-times-view',
 
         // utils
         constants: 'constants'
@@ -68,21 +68,19 @@ requirejs.config({
 
 });
 // Start the main app logic.
-requirejs(['jquery'], function($) {
+requirejs(['jquery', 'app', 'underscore', 'backbone', 'firebase_app', 'util'], function($, app, underscore, backbone, fb_app, fbdb) {
     requirejs(['loading', 'jq_loading'], function() {
         $.showLoading({ name: 'jump-pulse', allowHide: false });
-        requirejs(['app', 'underscore', 'backbone', 'firebase_app', 'util'], function(app, underscore, backbone, fb_app, fbdb) {
-            requirejs(['firebase_data_base', 'router'], function() {
-                // Initialize Firebase
-                var configFB = {
-                    apiKey: "AIzaSyBpHxEFisGuyYTf-X3GNUR-eW3KSCYlfOY",
-                    authDomain: "time-tracker-b63cd.firebaseapp.com",
-                    databaseURL: "https://time-tracker-b63cd.firebaseio.com",
-                    storageBucket: "time-tracker-b63cd.appspot.com",
-                    messagingSenderId: "22337040109"
-                };
-                firebase.initializeApp(configFB);
-            });
+        requirejs(['firebase_data_base'], function() {
+            // Initialize Firebase
+            var configFB = {
+                apiKey: "AIzaSyBpHxEFisGuyYTf-X3GNUR-eW3KSCYlfOY",
+                authDomain: "time-tracker-b63cd.firebaseapp.com",
+                databaseURL: "https://time-tracker-b63cd.firebaseio.com",
+                storageBucket: "time-tracker-b63cd.appspot.com",
+                messagingSenderId: "22337040109"
+            };
+            firebase.initializeApp(configFB);
         });
     });
 });

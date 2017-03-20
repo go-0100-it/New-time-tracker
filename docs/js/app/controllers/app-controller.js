@@ -1,16 +1,15 @@
 define([
         'jquery',
-        'app_data_model'
+        'app_data_model',
+        'settings_view'
     ],
-    function($, appDataModel) {
-        var app = {
-            'testCSSloader': function() {
-                require(['css!css/times/tracker-view.css'], function() {
-                    require(['tracker_view'], function(trackerView) {
-                        trackerView.createDiv("Hello World");
-                    });
-                });
-            }
+    function($, appDataModel, SettingsView) {
+        var renderSettingsView = function() {
+            var settingsView = new SettingsView().render();
+            $.hideLoading();
+            return trackerView;
         };
-        return app;
+        return {
+            renderSettingsView: renderSettingsView
+        };
     });

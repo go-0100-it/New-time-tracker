@@ -2,11 +2,10 @@
          'jquery',
          'backbone',
          'underscore',
-         'router',
-         'util'
+         'util',
 
      ],
-     function($, Backbone, _, router, tpl) {
+     function($, Backbone, _, tpl) {
          var DrawerMenuView = Backbone.View.extend({
              el: '#drawer-menu-container',
              events: {
@@ -33,7 +32,7 @@
              },
              invokeRouter: function(el) {
                  var $li = $(el);
-                 router.navigate($li.attr('data-url'), { trigger: true });
+                 window.router.navigate($li.attr('data-url'), { trigger: true });
                  $('#drawer-menu-check').prop('checked', false);
                  var array = ['#tracker', '#manage-times', '#manage-locations', '#time-list', '#settings']; // Test
                  for (var i = array.length - 1; i >= 0; i--) {
