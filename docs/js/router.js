@@ -32,6 +32,7 @@ define([
                 $.showLoading({ name: 'jump-pulse', allowHide: false });
                 console.log("My very first Backbone route");
                 MainController.renderTracker();
+                $(window).trigger('viewSelected', ['#tracker']);
             },
             'settings': function() {
                 $.showLoading({ name: 'jump-pulse', allowHide: false });
@@ -42,6 +43,7 @@ define([
                 $.showLoading({ name: 'jump-pulse', allowHide: false });
                 console.log('Called tracker page');
                 MainController.renderTracker();
+                $(window).trigger('viewSelected', ['#tracker']);
             },
             'manage-times': function() {
                 $.showLoading({ name: 'jump-pulse', allowHide: false });

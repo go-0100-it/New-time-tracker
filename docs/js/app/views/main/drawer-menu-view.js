@@ -33,6 +33,10 @@
              invokeRouter: function(el) {
                  var $li = $(el);
                  window.router.navigate($li.attr('data-url'), { trigger: true });
+                 this.toggleSelection(el);
+             },
+             viewShowing: '',
+             toggleSelection: function(el){
                  $('#drawer-menu-check').prop('checked', false);
                  var array = ['#tracker', '#manage-times', '#manage-locations', '#time-list', '#settings'];
                  for (var i = 0; i < array.length; i++) {
@@ -44,10 +48,15 @@
                  }
              },
              initialize: function() {
-                 this.template = _.template(tpl.get('drawer-menu-view'));
+                this.template = _.template(tpl.get('drawer-menu-view'));
              },
              render: function() {
                  this.$el.html(this.template());
+                 $(window).on('viewSelected', function(evt, el){
+                    console.log('called setViewShowing');
+                    this.viewShowing = el;
+                    console.log('View showing: ' + this.viewShowing);
+                });
                  return this;
              }
          });

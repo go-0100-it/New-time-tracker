@@ -1,7 +1,7 @@
 // More description
 
-define(['jquery', 'backbone', 'underscore', 'times_model', 'times_collection', 'times_view', 'times_list_view', 'times_item_view', 'firebase_app', 'firebase_data_base', 'manage_times_view'],
-    function($, backbone, _, Times, TimesCollection, TimesView, TimesListView, TimesItemView, firebaseAPP, firebaseDB, ManageTimesView) {
+define(['jquery', 'backbone', 'underscore', 'times_model', 'times_collection', 'times_view', 'times_list_view', 'times_item_view', 'manage_times_view'],
+    function($, backbone, _, Times, TimesCollection, TimesView, TimesListView, TimesItemView, ManageTimesView) {
 
         var createTimesView = function() {
             require(['css!css/times/times-detail-view.css'], function() {

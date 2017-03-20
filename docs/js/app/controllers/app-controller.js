@@ -7,7 +7,7 @@ define([
         var renderSettingsView = function() {
             var settingsView = new SettingsView().render();
             $.hideLoading();
-            return trackerView;
+            return renderSettingsView;
         };
         return {
             renderSettingsView: renderSettingsView

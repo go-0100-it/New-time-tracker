@@ -1,7 +1,7 @@
 // More description
 
-define(['jquery', 'backbone', 'underscore', 'drawer_view', 'navbar_view', 'tracker_view'],
-    function($, backbone, _, DrawerView, NavbarView, TrackerView) {
+define(['jquery', 'backbone', 'underscore', 'drawer_view', 'navbar_view', 'tracker_view', 'times_model'],
+    function($, backbone, _, DrawerView, NavbarView, TrackerView, Times) {
         return {
             initialize: function() {
                 $(document).ready(function() {
@@ -17,8 +17,6 @@ define(['jquery', 'backbone', 'underscore', 'drawer_view', 'navbar_view', 'track
                         var drawerMenu = new DrawerView().render();
                         //return drawerMenu;
                     };
-
-
                     var initialRender = function() {
                         renderNavbar();
                         renderDrawerMenu();
@@ -29,9 +27,11 @@ define(['jquery', 'backbone', 'underscore', 'drawer_view', 'navbar_view', 'track
                 }, 2000);
             },
             renderTracker: function() {
-                var trackerView = new TrackerView().render();
-                $.hideLoading();
-                return trackerView;
+                firebase.database().ref("AppData/last_state").once('value').then(function(snapshot) {
+                    var trackerView = new TrackerView({ model: new Times.Times(snapshot.val()) }).render();
+                    $.hideLoading();
+                    return trackerView;
+                });
             }
         };
     });
