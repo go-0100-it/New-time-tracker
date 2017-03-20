@@ -2,16 +2,6 @@
     height: 1px;
 }
 
-.display-container {
-    width: 100%;
-    background-color: #a0856e;
-    box-shadow: 0 2.5px 15px #111;
-    border-radius: 10px;
-    text-align: center;
-    margin: 20px 0;
-    padding: 20px 0;
-}
-
 .sub-title {
     margin: 20px 0;
 }
