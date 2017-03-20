@@ -11,7 +11,7 @@ define([
 
         var TrackerView = Backbone.View.extend({
             model: new Times.Times(),
-            el: '#trackerView',
+            el: '#display',
             events: {
                 'click #start': 'onClickStart',
                 'click #finish': 'onClickFinish'

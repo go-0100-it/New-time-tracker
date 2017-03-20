@@ -10,7 +10,7 @@ define([
     function($, Backbone, _, Times, tpl) {
 
         var ManageTimesView = Backbone.View.extend({
-            el: '#manage-times-view',
+            el: '#display',
             initialize: function() {
                 this.template = _.template(tpl.get('manage-times-view'));
             },

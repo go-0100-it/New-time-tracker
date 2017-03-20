@@ -34,15 +34,14 @@
                  var $li = $(el);
                  window.router.navigate($li.attr('data-url'), { trigger: true });
                  $('#drawer-menu-check').prop('checked', false);
-                 var array = ['#tracker', '#manage-times', '#manage-locations', '#time-list', '#settings']; // Test
-                 for (var i = array.length - 1; i >= 0; i--) {
+                 var array = ['#tracker', '#manage-times', '#manage-locations', '#time-list', '#settings'];
+                 for (var i = 0; i < array.length; i++) {
                      if (array[i] === el) {
                          $(array[i]).addClass('drawer-menu-item-selected');
                      } else {
                          $(array[i]).removeClass('drawer-menu-item-selected');
                      }
                  }
-                 $(this).trigger('drawerEventDispensed', el);
              },
              initialize: function() {
                  this.template = _.template(tpl.get('drawer-menu-view'));

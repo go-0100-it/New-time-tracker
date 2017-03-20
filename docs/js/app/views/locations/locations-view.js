@@ -10,7 +10,7 @@ define([
     function($, Backbone, _, Locations, tpl) {
 
         var LocationsView = Backbone.View.extend({
-            el: '#manage-locations-view',
+            el: '#display',
             initialize: function() {
                 this.template = _.template(tpl.get('manage-locations-view'));
             },

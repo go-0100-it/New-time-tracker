@@ -10,7 +10,7 @@ define([
     function($, Backbone, _, AppDataModel, tpl) {
 
         var SettingsView = Backbone.View.extend({
-            el: '#settings-view',
+            el: '#display',
             initialize: function() {
                 this.template = _.template(tpl.get('settings-view'));
             },
