@@ -13,7 +13,6 @@ define([
             model: new Times.Times(),
             tagName: 'li',
             className: 'times-list-item',
-            id: "1",
             events: {
                 'click #shift': 'onClickShift',
                 'click #date': 'onClickDate',
@@ -46,7 +45,9 @@ define([
                 this.template = _.template(tpl.get('times-list-item'));
             },
             render: function() {
-                this.$el.html(this.template(this.model.toJSON()));
+                var data = this.model.toJSON();
+                this.$el.html(this.template(data));
+                this.$el.id = data.key;
                 return this;
             }
         });

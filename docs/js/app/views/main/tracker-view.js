@@ -29,11 +29,38 @@ define([
             initialize: function() {
                 this.template = _.template(tpl.get('tracker-view'));
             },
-            render: function() {
-                console.log('rendering new tracker');
+            render: function(last_state) {
                 this.$el.html(this.template(this.model.toJSON()));
+                switch (last_state) {
+                    case 'idol':
+                        this.disableElements(['#new', '#finish']);
+                        break;
+                    case 'tracking':
+                        var msg = 'rendering tracking tracker';
+                        this.disableElements(['#inTime', '#shift-type', '#date-input', '#start']);
+                        this.hideElements(['#new']);
+                        break;
+                    case 'finished':
+                        this.disableElements(['#inTime', '#outTime', '#shift-type', '#date-input', '#text']);
+                        this.hideElements(['#start', '#finish']);
+                        break;
+                    default:
+                        break;
+                }
                 return this;
             },
+            hideElements: function(els) {
+                var len = els.length;
+                for (var i = 0; i < len; i++) {
+                    this.$el.find(els[i]).addClass('hidden');
+                }
+            },
+            disableElements: function(els) {
+                var len = els.length;
+                for (var i = 0; i < len; i++) {
+                    $(els[i]).prop('disabled', true);
+                }
+            }
         });
         return TrackerView;
     });

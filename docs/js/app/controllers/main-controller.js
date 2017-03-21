@@ -27,8 +27,11 @@ define(['jquery', 'backbone', 'underscore', 'drawer_view', 'navbar_view', 'track
                 }, 2000);
             },
             renderTracker: function() {
-                firebase.database().ref("AppData/last_state").once('value').then(function(snapshot) {
-                    var trackerView = new TrackerView({ model: new Times.Times(snapshot.val()) }).render();
+                firebase.database().ref("AppData").once('value').then(function(snapshot) {
+                    var times = snapshot.val();
+                    var status = times.app_state.status;
+                    console.log(status);
+                    var trackerView = new TrackerView({ model: new Times.Times(times.last_state) }).render(status);
                     $.hideLoading();
                     return trackerView;
                 });

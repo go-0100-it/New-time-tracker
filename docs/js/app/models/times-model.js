@@ -13,7 +13,7 @@ define(['jquery', 'backbone', 'underscore'], function($, Backbone, _) {
                 inTime: '',
                 outTime: '',
                 shift: '',
-                date: 'today'
+                date: ''
             };
         }
     });

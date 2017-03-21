@@ -15,9 +15,10 @@ define([
             render: function() {
 
                 this.model.each(function(key) {
-                    var itemView = new timesItemView({ model: key });
-                    console.log(itemView);
-                    this.$el.append(itemView.render().$el);
+                    var itemView = new timesItemView({ model: key }).render();
+                    this.$el.append(itemView.$el);
+                    console.log(key.toJSON().inTimeMS);
+                    itemView.$el.attr('id', key.toJSON().inTimeMS);
                 }, this);
 
                 return this;
