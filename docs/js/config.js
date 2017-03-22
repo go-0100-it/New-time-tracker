@@ -15,6 +15,7 @@ requirejs.config({
         backbone: 'libs/backbone.min',
         backbonefire: 'libs/backbonefire',
         firebase_app: 'https://www.gstatic.com/firebasejs/3.6.10/firebase-app',
+        firebase_auth: 'https://www.gstatic.com/firebasejs/3.7.1/firebase-auth',
         firebase_data_base: 'https://www.gstatic.com/firebasejs/3.6.10/firebase-database',
         router: 'router',
         util: 'util',
@@ -68,7 +69,7 @@ requirejs.config({
 
 });
 // Start the main app logic.
-require(['jquery'], function($) {
+requirejs(['jquery'], function($) {
     requirejs(['loading', 'jq_loading'], function() {
         $.showLoading({ name: 'jump-pulse', allowHide: false });
         requirejs(['app', 'underscore', 'backbone', 'firebase_app', 'util'], function(app, underscore, backbone, fb_app, fbdb) {

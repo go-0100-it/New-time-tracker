@@ -20,6 +20,7 @@ define([
 
                 // Calls the home method when there is no hashtag on the url
                 '': 'home',
+                'auth': 'auth',
                 'settings': 'settings',
                 'tracker': 'tracker',
                 'manage-times': 'manage-times',
@@ -28,6 +29,12 @@ define([
 
             },
 
+            'auth': function() {
+                $.showLoading({ name: 'jump-pulse', allowHide: false });
+                console.log("Login requested");
+                AppController.renderAuthView();
+                $(window).trigger('viewSelected', ['#auth']);
+            },
             'home': function() {
                 $.showLoading({ name: 'jump-pulse', allowHide: false });
                 console.log("My very first Backbone route");

@@ -1,0 +1,121 @@
+<html>
+
+<head>
+    <title>Authentication Example</title>
+    <link rel="stylesheet" type="text/css" href="css/main/main-view.css">
+</head>
+
+<body>
+
+    <!--Include firebase.js  -->
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-auth.js"></script>
+    <!--Configure firebase-->
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBpHxEFisGuyYTf-X3GNUR-eW3KSCYlfOY",
+            authDomain: "time-tracker-b63cd.firebaseapp.com",
+            databaseURL: "https://time-tracker-b63cd.firebaseio.com",
+            storageBucket: "time-tracker-b63cd.appspot.com",
+            messagingSenderId: "22337040109"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <!--Handle auth events-->
+    <script>
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                logUser(user);
+            } else {
+                console.log('You are no longer signed in.');
+            }
+        });
+    </script>
+
+    <!--Handle page events-->
+    <script>
+        firebase.auth().getRedirectResult().then(function(result) {
+            if (result.credential) {
+                // This gives you a Google Access Token.
+                var token = result.credential.accessToken;
+                console.log(token);
+            }
+            var user = result.user;
+
+        });
+
+        document.querySelector('#sign-in').addEventListener('click', function(e) {
+            console.log('got the click');
+            e.preventDefault();
+            e.stopPropagation();
+            // Start a sign in process for an unauthenticated user.
+            var provider = new firebase.auth.GoogleAuthProvider();
+            provider.addScope('profile');
+            provider.addScope('email');
+            firebase.auth().signInWithRedirect(provider);
+
+            // Using a redirect.
+
+            // var provider = new firebase.auth.GoogleAuthProvider();
+            // provider.addScope('https://www.googleapis.com/auth/plus.login');
+            // firebase.auth().signInWithPopup(provider).then(function(result) {
+            //     // This gives you a Google Access Token. You can use it to access the Google API.
+            //     var token = result.credential.accessToken;
+            //     // The signed-in user info.
+            //     var user = result.user;
+            //     logUser(user);
+            //     // ...
+            // }).catch(function(error) {
+            //     // Handle Errors here.
+            //     var errorCode = error.code;
+            //     console.error(errorCode);
+            //     var errorMessage = error.message;
+            //     console.error(errorMessage);
+            //     // The email of the user's account used.
+            //     var email = error.email;
+            //     console.info(email);
+            //     // The firebase.auth.AuthCredential type that was used.
+            //     var credential = error.credential;
+            //     console.info(credential);
+            //     // ...
+            // });
+
+        });
+        var name, email, photoUrl, uid, emailVerified;
+        var logUser = function(user) {
+
+            if (user != null) {
+                name = user.displayName;
+                email = user.email;
+                photoUrl = user.photoURL;
+                emailVerified = user.emailVerified;
+                uid = user.uid; // The user's ID, unique to the Firebase project. Do NOT use
+                // this value to authenticate with your backend server, if
+                // you have one. Use User.getToken() instead.
+            }
+        };
+
+
+        $('#sign-out').on('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            firebase.auth().signOut().then(function(result) {
+
+                console.log('Goodbye ' + name);
+            }).catch(function(error) {
+                var errorCode = error.code;
+                console.error(errorCode);
+                var errorMessage = error.message;
+                console.error(errorMessage);
+                // The email of the user's account used.
+                var email = error.email;
+                console.info(email);
+                console.error('Something unforeseen has happened and ' + name + ' was not logged out.');
+            });
+        });
+    </script>
+</body>
+
+</html>
