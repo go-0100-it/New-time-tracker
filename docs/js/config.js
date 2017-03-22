@@ -30,6 +30,7 @@ requirejs.config({
 
         /* Models */
         app_data_model: 'app/models/app-data-model',
+        user_model: 'app/models/user-model',
         locations_model: 'app/models/locations-model',
         navbar_model: 'app/models/navbar-model',
         times_model: 'app/models/times-model',
@@ -41,19 +42,19 @@ requirejs.config({
         drawer_view: 'app/views/main/drawer-menu-view',
         navbar_view: 'app/views/main/navbar-view',
         dropdown_view: 'app.views/main/dropdown-view',
-        tracker_view: 'app/views/main/tracker-view',
-
         // locations
         locations_map_view: 'app/views/locations/locations-map-view',
         locations_view: 'app/views/locations/locations-view',
 
-        // settings
-        settings_view: 'app/views/settings/settings-view',
+        // app-views
+        settings_view: 'app/views/app-views/settings-view',
+        auth_view: 'app/views/app-views/auth-view',
 
         // times
         times_list_view: 'app/views/times/times-list-view',
         times_item_view: 'app/views/times/times-item-view',
         times_view: 'app/views/times/times-view',
+        tracker_view: 'app/views/times/tracker-view',
         manage_times_view: 'app/views/times/manage-times-view',
 
         // utils
@@ -72,7 +73,7 @@ requirejs.config({
 requirejs(['jquery'], function($) {
     requirejs(['loading', 'jq_loading'], function() {
         $.showLoading({ name: 'jump-pulse', allowHide: false });
-        requirejs(['app', 'underscore', 'backbone', 'firebase_app', 'util'], function(app, underscore, backbone, fb_app, fbdb) {
+        requirejs(['app', 'underscore', 'backbone', 'firebase_app', 'firebase_auth', 'util'], function(app, underscore, backbone, fb_app, fbAuth) {
             requirejs(['firebase_data_base'], function() {
                 // Initialize Firebase
                 var configFB = {
@@ -83,6 +84,8 @@ requirejs(['jquery'], function($) {
                     messagingSenderId: "22337040109"
                 };
                 firebase.initializeApp(configFB);
+
+
             });
         });
     });

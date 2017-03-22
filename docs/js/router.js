@@ -7,7 +7,7 @@ define([
         'locations_controller',
         'app_controller'
     ],
-    function($, _, backbone, MainController, TimesController, LocationsController, AppController) {
+    function($, _, backbone, MainController, TimesController, LocationsController, AppController) { // TODO: Need to require USER
         var Router = Backbone.Router.extend({
             // Constructor
             initialize: function() {
@@ -19,7 +19,7 @@ define([
             routes: {
 
                 // Calls the home method when there is no hashtag on the url
-                '': 'home',
+                '': 'auth',
                 'auth': 'auth',
                 'settings': 'settings',
                 'tracker': 'tracker',
@@ -31,41 +31,87 @@ define([
 
             'auth': function() {
                 $.showLoading({ name: 'jump-pulse', allowHide: false });
-                console.log("Login requested");
+                console.log("Login requested"); // ***** REMOVE *****
                 AppController.renderAuthView();
-                $(window).trigger('viewSelected', ['#auth']);
-            },
-            'home': function() {
-                $.showLoading({ name: 'jump-pulse', allowHide: false });
-                console.log("My very first Backbone route");
-                MainController.renderTracker();
-                $(window).trigger('viewSelected', ['#tracker']);
             },
             'settings': function() {
                 $.showLoading({ name: 'jump-pulse', allowHide: false });
-                console.log('Called settings page');
-                AppController.renderSettingsView();
+                if (window.userIsAuthenticated) {
+                    console.log(this.UserIsAuthenticated);
+                    AppController.renderSettingsView();
+                } else {
+                    window.router.navigate('auth', { trigger: true });
+                }
             },
             'tracker': function() {
                 $.showLoading({ name: 'jump-pulse', allowHide: false });
-                console.log('Called tracker page');
-                MainController.renderTracker();
-                $(window).trigger('viewSelected', ['#tracker']);
+                /* TODO:
+                    Change to...
+                                     ***  Also need to mover rendering of tracker view to MainController
+                    
+                */
+                require(['main_controller'], function(MainController) {
+                    if (window.userIsAuthenticated) {
+                        MainController.renderTracker();
+                    } else {
+                        window.router.navigate('auth', { trigger: true });
+                    }
+                })
+
+
+                // console.log('Called tracker page'); // ***** REMOVE *****
+                // MainController.renderTracker(); // ***** REMOVE *****
             },
             'manage-times': function() {
                 $.showLoading({ name: 'jump-pulse', allowHide: false });
-                console.log('Called manage-times page');
-                TimesController.renderManageTimesView();
+                /* TODO:
+                    Change to...
+                    
+                */
+                require(['times_controller'], function(TimesController) {
+                    if (window.userIsAuthenticated) {
+                        TimesController.renderManageTimesView();
+                    } else {
+                        window.router.navigate('auth', { trigger: true });
+                    }
+                })
+
+                // console.log('Called manage-times page'); // ***** REMOVE *****
+                // TimesController.renderManageTimesView(); // ***** REMOVE *****
             },
             'manage-locations': function() {
                 $.showLoading({ name: 'jump-pulse', allowHide: false });
-                console.log('Called manage-locations page');
-                LocationsController.renderLocationsView();
+                /* TODO:
+                    Change to...
+                    
+                */
+                require(['locations_controller'], function(LocationsController) {
+                    if (window.userIsAuthenticated) {
+                        LocationsController.renderLocationsView();
+                    } else {
+                        window.router.navigate('auth', { trigger: true });
+                    }
+                })
+
+                // console.log('Called manage-locations page'); // ***** REMOVE *****
+                // LocationsController.renderLocationsView(); // ***** REMOVE *****
             },
             'time-list': function() {
                 $.showLoading({ name: 'jump-pulse', allowHide: false });
-                console.log('Called times-list page');
-                TimesController.createTimesView();
+                /* TODO:
+                    Change to...
+                                */
+                require(['times_controller'], function(TimesController) {
+                    if (window.userIsAuthenticated) {
+                        TimesController.createTimesView();
+                    } else {
+                        window.router.navigate('auth', { trigger: true });
+                    }
+                })
+
+
+                // console.log('Called times-list page'); // ***** REMOVE *****
+                // TimesController.createTimesView(); // ***** REMOVE *****
             }
         });
         return Router;

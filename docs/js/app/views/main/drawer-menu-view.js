@@ -13,7 +13,8 @@
                  'click #manage-times': 'onClickManageTimes',
                  'click #manage-locations': 'onClickLocations',
                  'click #time-list': 'onClickTimesList',
-                 'click #settings': 'onClickSettings'
+                 'click #settings': 'onClickSettings',
+                 'click #auth': 'onClickAuth'
              },
              onClickTracker: function() {
                  this.invokeRouter('#tracker');
@@ -30,15 +31,19 @@
              onClickSettings: function() {
                  this.invokeRouter('#settings');
              },
+             onClickAuth: function() {
+                 $('#sign-out').trigger('click');
+                 this.invokeRouter('#auth');
+             },
              invokeRouter: function(el) {
                  var $li = $(el);
                  window.router.navigate($li.attr('data-url'), { trigger: true });
                  this.toggleSelection(el);
              },
              viewShowing: '',
-             toggleSelection: function(el){
+             toggleSelection: function(el) {
                  $('#drawer-menu-check').prop('checked', false);
-                 var array = ['#tracker', '#manage-times', '#manage-locations', '#time-list', '#settings'];
+                 var array = ['#tracker', '#manage-times', '#manage-locations', '#time-list', '#settings', '#auth'];
                  for (var i = 0; i < array.length; i++) {
                      if (array[i] === el) {
                          $(array[i]).addClass('drawer-menu-item-selected');
@@ -48,15 +53,10 @@
                  }
              },
              initialize: function() {
-                this.template = _.template(tpl.get('drawer-menu-view'));
+                 this.template = _.template(tpl.get('drawer-menu-view'));
              },
              render: function() {
                  this.$el.html(this.template());
-                 $(window).on('viewSelected', function(evt, el){
-                    console.log('called setViewShowing');
-                    this.viewShowing = el;
-                    console.log('View showing: ' + this.viewShowing);
-                });
                  return this;
              }
          });

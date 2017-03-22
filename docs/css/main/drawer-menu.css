@@ -63,6 +63,10 @@
     margin: 0;
 }
 
+.ninety-five-percent {
+    width: 95%;
+}
+
 .drawer-menu-list {
     list-style: none;
     padding: 0;

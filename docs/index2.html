@@ -39,7 +39,7 @@
         firebase.auth().getRedirectResult().then(function(result) {
             if (result.credential) {
                 // This gives you a Google Access Token.
-                var token = result.credential.accessToken;
+                token = result.credential.accessToken;
                 console.log(token);
             }
             var user = result.user;
