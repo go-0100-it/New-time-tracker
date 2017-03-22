@@ -70,23 +70,14 @@ requirejs.config({
 
 });
 // Start the main app logic.
-requirejs(['jquery'], function($) {
-    requirejs(['loading', 'jq_loading'], function() {
-        $.showLoading({ name: 'jump-pulse', allowHide: false });
-        requirejs(['app', 'underscore', 'backbone', 'firebase_app', 'firebase_auth', 'util'], function(app, underscore, backbone, fb_app, fbAuth) {
-            requirejs(['firebase_data_base'], function() {
-                // Initialize Firebase
-                var configFB = {
-                    apiKey: "AIzaSyBpHxEFisGuyYTf-X3GNUR-eW3KSCYlfOY",
-                    authDomain: "time-tracker-b63cd.firebaseapp.com",
-                    databaseURL: "https://time-tracker-b63cd.firebaseio.com",
-                    storageBucket: "time-tracker-b63cd.appspot.com",
-                    messagingSenderId: "22337040109"
-                };
-                firebase.initializeApp(configFB);
-
-
-            });
-        });
-    });
+requirejs(['firebase_app', 'firebase_auth', 'firebase_data_base'], function(fb_app, fb_auth, fb_db) {
+    // Initialize Firebase
+    var configFB = {
+        apiKey: "AIzaSyBpHxEFisGuyYTf-X3GNUR-eW3KSCYlfOY",
+        authDomain: "time-tracker-b63cd.firebaseapp.com",
+        databaseURL: "https://time-tracker-b63cd.firebaseio.com",
+        storageBucket: "time-tracker-b63cd.appspot.com",
+        messagingSenderId: "22337040109"
+    };
+    firebase.initializeApp(configFB);
 });
