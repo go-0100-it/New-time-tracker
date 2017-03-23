@@ -38,7 +38,6 @@ requirejs.config({
 
         /* Views */
         // main
-        main_view: 'app/views/main/main-view',
         drawer_view: 'app/views/main/drawer-menu-view',
         navbar_view: 'app/views/main/navbar-view',
         dropdown_view: 'app.views/main/dropdown-view',
@@ -47,6 +46,7 @@ requirejs.config({
         locations_view: 'app/views/locations/locations-view',
 
         // app-views
+        home_view: 'app/views/app-views/home-view',
         settings_view: 'app/views/app-views/settings-view',
         auth_view: 'app/views/app-views/auth-view',
 

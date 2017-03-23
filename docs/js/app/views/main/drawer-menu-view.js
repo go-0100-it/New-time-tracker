@@ -35,8 +35,7 @@
                  this.invokeRouter('#settings');
              },
              onClickAuth: function() {
-                 $(window).trigger('clickSign-out', false);
-                 this.invokeRouter('#auth');
+                 $(window).trigger('clickSign-out');
              },
              invokeRouter: function(el) {
                  var $li = $(el);

@@ -21,6 +21,7 @@ define([
             routes: {
 
                 // Calls the home method when there is no hashtag on the url
+                '': 'home',
                 'auth': 'auth',
                 'settings': 'settings',
                 'tracker': 'tracker',
@@ -30,17 +31,22 @@ define([
 
             },
 
+            'home': function() {
+                $.showLoading({ name: 'jump-pulse', allowHide: false });
+                if (window.userIsAuthenticated) {} else {
+                    AppController.renderHomeView();
+                }
+            },
+
             'auth': function() {
                 $.showLoading({ name: 'jump-pulse', allowHide: false });
-                if (window.userIsAuthenticated) {}else{
-                    console.log("Login requested"); // ***** REMOVE *****
+                if (window.userIsAuthenticated) {} else {
                     AppController.renderAuthView();
                 }
             },
             'settings': function() {
                 $.showLoading({ name: 'jump-pulse', allowHide: false });
                 if (window.userIsAuthenticated) {
-                    console.log(this.UserIsAuthenticated);
                     AppController.renderSettingsView();
                 } else {
                     AppController.renderAuthView();
@@ -48,73 +54,43 @@ define([
             },
             'tracker': function() {
                 $.showLoading({ name: 'jump-pulse', allowHide: false });
-                /* TODO:
-                    Change to...
-                                     ***  Also need to mover rendering of tracker view to MainController
-                    
-                */
                 require(['main_controller'], function(MainController) {
                     if (window.userIsAuthenticated) {
                         MainController.renderTracker();
                     } else {
                         AppController.renderAuthView();
                     }
-                })
-
-
-                // console.log('Called tracker page'); // ***** REMOVE *****
-                // MainController.renderTracker(); // ***** REMOVE *****
+                });
             },
             'manage-times': function() {
                 $.showLoading({ name: 'jump-pulse', allowHide: false });
-                /* TODO:
-                    Change to...
-                    
-                */
                 require(['times_controller'], function(TimesController) {
                     if (window.userIsAuthenticated) {
                         TimesController.renderManageTimesView();
                     } else {
                         AppController.renderAuthView();
                     }
-                })
-
-                // console.log('Called manage-times page'); // ***** REMOVE *****
-                // TimesController.renderManageTimesView(); // ***** REMOVE *****
+                });
             },
             'manage-locations': function() {
                 $.showLoading({ name: 'jump-pulse', allowHide: false });
-                /* TODO:
-                    Change to...
-                    
-                */
                 require(['locations_controller'], function(LocationsController) {
                     if (window.userIsAuthenticated) {
                         LocationsController.renderLocationsView();
                     } else {
                         AppController.renderAuthView();
                     }
-                })
-
-                // console.log('Called manage-locations page'); // ***** REMOVE *****
-                // LocationsController.renderLocationsView(); // ***** REMOVE *****
+                });
             },
             'time-list': function() {
                 $.showLoading({ name: 'jump-pulse', allowHide: false });
-                /* TODO:
-                    Change to...
-                                */
                 require(['times_controller'], function(TimesController) {
                     if (window.userIsAuthenticated) {
                         TimesController.createTimesView();
                     } else {
                         AppController.renderAuthView();
                     }
-                })
-
-
-                // console.log('Called times-list page'); // ***** REMOVE *****
-                // TimesController.createTimesView(); // ***** REMOVE *****
+                });
             }
         });
         return Router;
