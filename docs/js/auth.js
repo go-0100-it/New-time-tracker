@@ -45,7 +45,11 @@ define([],
 
                 });
 
-                document.querySelector('#sign-in').addEventListener('click', function(e) {
+                $('#sign-in').on('click', function(e) {
+                    $(window).trigger('clickSign-in');
+                });
+
+                $(window).on('clickSign-in', function(e) {
                     e.preventDefault();
                     e.stopPropagation();
                     console.log('got the click');
@@ -56,13 +60,11 @@ define([],
                     firebase.auth().signInWithRedirect(provider);
                 });
 
-
-
-                $('#sign-out').on('click', function(e) {
+                $(window).on('clickSign-out', function(e){
                     e.preventDefault();
                     e.stopPropagation();
                     firebase.auth().signOut().then(function(result) {
-
+                        $('#nav').hide();
                         console.log('Goodbye ' + name);
                     }).catch(function(error) {
                         var errorCode = error.code;
@@ -74,6 +76,10 @@ define([],
                         console.info(email);
                         console.error('Something unforeseen has happened and ' + name + ' was not logged out.');
                     });
+                });
+
+                $('#sign-out').on('click', function(e) {
+                    $(window).trigger('clickSign-out');
                 });
             });
         });

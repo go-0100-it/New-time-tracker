@@ -16,6 +16,8 @@ define([
                 Backbone.history.start();
             },
 
+            router: this,
+
             routes: {
 
                 // Calls the home method when there is no hashtag on the url
@@ -30,8 +32,10 @@ define([
 
             'auth': function() {
                 $.showLoading({ name: 'jump-pulse', allowHide: false });
-                console.log("Login requested"); // ***** REMOVE *****
-                AppController.renderAuthView();
+                if (window.userIsAuthenticated) {}else{
+                    console.log("Login requested"); // ***** REMOVE *****
+                    AppController.renderAuthView();
+                }
             },
             'settings': function() {
                 $.showLoading({ name: 'jump-pulse', allowHide: false });
@@ -39,7 +43,7 @@ define([
                     console.log(this.UserIsAuthenticated);
                     AppController.renderSettingsView();
                 } else {
-                    window.router.navigate('auth', { trigger: true });
+                    AppController.renderAuthView();
                 }
             },
             'tracker': function() {
@@ -53,7 +57,7 @@ define([
                     if (window.userIsAuthenticated) {
                         MainController.renderTracker();
                     } else {
-                        window.router.navigate('auth', { trigger: true });
+                        AppController.renderAuthView();
                     }
                 })
 
@@ -71,7 +75,7 @@ define([
                     if (window.userIsAuthenticated) {
                         TimesController.renderManageTimesView();
                     } else {
-                        window.router.navigate('auth', { trigger: true });
+                        AppController.renderAuthView();
                     }
                 })
 
@@ -88,7 +92,7 @@ define([
                     if (window.userIsAuthenticated) {
                         LocationsController.renderLocationsView();
                     } else {
-                        window.router.navigate('auth', { trigger: true });
+                        AppController.renderAuthView();
                     }
                 })
 
@@ -104,7 +108,7 @@ define([
                     if (window.userIsAuthenticated) {
                         TimesController.createTimesView();
                     } else {
-                        window.router.navigate('auth', { trigger: true });
+                        AppController.renderAuthView();
                     }
                 })
 

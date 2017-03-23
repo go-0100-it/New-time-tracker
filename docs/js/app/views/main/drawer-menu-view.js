@@ -3,10 +3,11 @@
          'backbone',
          'underscore',
          'util',
-         'router'
+         'router',
+         'auth'
 
      ],
-     function($, Backbone, _, tpl, Router) {
+     function($, Backbone, _, tpl, Router, auth) {
          var router = new Router();
          var DrawerMenuView = Backbone.View.extend({
              el: '#drawer-menu-container',
@@ -34,7 +35,7 @@
                  this.invokeRouter('#settings');
              },
              onClickAuth: function() {
-                 $('#sign-out').trigger('click');
+                 $(window).trigger('clickSign-out', false);
                  this.invokeRouter('#auth');
              },
              invokeRouter: function(el) {
