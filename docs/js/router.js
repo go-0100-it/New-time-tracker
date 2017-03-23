@@ -19,7 +19,6 @@ define([
             routes: {
 
                 // Calls the home method when there is no hashtag on the url
-                '': 'auth',
                 'auth': 'auth',
                 'settings': 'settings',
                 'tracker': 'tracker',
