@@ -72,12 +72,14 @@ requirejs.config({
 // Start the main app logic.
 requirejs(['firebase_app', 'firebase_auth', 'firebase_data_base'], function(fb_app, fb_auth, fb_db) {
     // Initialize Firebase
-    var configFB = {
-        apiKey: "AIzaSyBpHxEFisGuyYTf-X3GNUR-eW3KSCYlfOY",
-        authDomain: "time-tracker-b63cd.firebaseapp.com",
-        databaseURL: "https://time-tracker-b63cd.firebaseio.com",
-        storageBucket: "time-tracker-b63cd.appspot.com",
-        messagingSenderId: "22337040109"
-    };
-    firebase.initializeApp(configFB);
+    requirejs(['auth', 'app'], function(auth, app) {
+        var configFB = {
+            apiKey: "AIzaSyBpHxEFisGuyYTf-X3GNUR-eW3KSCYlfOY",
+            authDomain: "time-tracker-b63cd.firebaseapp.com",
+            databaseURL: "https://time-tracker-b63cd.firebaseio.com",
+            storageBucket: "time-tracker-b63cd.appspot.com",
+            messagingSenderId: "22337040109"
+        };
+        firebase.initializeApp(configFB);
+    });
 });

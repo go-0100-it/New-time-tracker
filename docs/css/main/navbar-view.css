@@ -1,3 +1,7 @@
+.navbar-view-css-loaded {
+    height: 1px;
+}
+
 .nav-bar {
     box-sizing: border-box;
     box-shadow: 0 2.5px 10px #111111;

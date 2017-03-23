@@ -1,4 +1,6 @@
-/* Style The Dropdown Button */
+.dropdown-menu-css-loaded {
+    height: 1px;
+}
 
 .dropbtn {
     position: fixed;

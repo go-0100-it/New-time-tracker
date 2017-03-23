@@ -3,9 +3,11 @@
          'backbone',
          'underscore',
          'util',
+         'router'
 
      ],
-     function($, Backbone, _, tpl) {
+     function($, Backbone, _, tpl, Router) {
+         var router = new Router();
          var DrawerMenuView = Backbone.View.extend({
              el: '#drawer-menu-container',
              events: {
@@ -37,7 +39,7 @@
              },
              invokeRouter: function(el) {
                  var $li = $(el);
-                 window.router.navigate($li.attr('data-url'), { trigger: true });
+                 router.navigate($li.attr('data-url'), { trigger: true });
                  this.toggleSelection(el);
              },
              viewShowing: '',

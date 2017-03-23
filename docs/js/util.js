@@ -25,6 +25,7 @@ define([
                     });
                 };
                 loadTemplate(0);
+                console.log('All templates loaded')
             },
             // Get template by name from hash of preloaded templates
             get: function(name) {

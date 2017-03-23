@@ -1,3 +1,7 @@
+.drawer-menu-css-loaded {
+    height: 1px;
+}
+
 .drawer-menu {
     position: fixed;
     top: 0;
