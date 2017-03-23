@@ -14,7 +14,7 @@ define([
             // Will remove from define
             var settingsView = new SettingsView().render();
             $.hideLoading();
-            return renderSettingsView;
+            return settingsView;
         };
         var renderAuthView = function() {
             var authView = new AuthView().render();
