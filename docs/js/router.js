@@ -16,8 +16,6 @@ define([
                 Backbone.history.start();
             },
 
-            router: this,
-
             routes: {
 
                 // Calls the home method when there is no hashtag on the url
@@ -28,70 +26,81 @@ define([
                 'manage-times': 'manage-times',
                 'manage-locations': 'manage-locations',
                 'time-list': 'time-list'
-
             },
 
             'home': function() {
-                $.showLoading({ name: 'jump-pulse', allowHide: false });
-                if (window.userIsAuthenticated) {} else {
-                    AppController.renderHomeView();
-                }
+                var delay = this.showLoadingDelay();
+                require(['app_controller'], function(AppController) {
+                    if (window.userIsAuthenticated) {} else {
+                        AppController.renderHomeView(delay);
+                    }
+                });
             },
 
             'auth': function() {
-                $.showLoading({ name: 'jump-pulse', allowHide: false });
-                if (window.userIsAuthenticated) {} else {
-                    AppController.renderAuthView();
-                }
+                var delay = this.showLoadingDelay();
+                require(['app_controller'], function(AppController) {
+                    if (window.userIsAuthenticated) {} else {
+                        AppController.renderAuthView(delay);
+                    }
+                });
             },
             'settings': function() {
-                $.showLoading({ name: 'jump-pulse', allowHide: false });
-                if (window.userIsAuthenticated) {
-                    AppController.renderSettingsView();
-                } else {
-                    AppController.renderAuthView();
-                }
+                var delay = this.showLoadingDelay()
+                require(['app_controller'], function(AppController) {
+                    if (window.userIsAuthenticated) {
+                        AppController.renderSettingsView(delay);
+                    } else {
+                        AppController.renderAuthView(delay);
+                    }
+                });
             },
             'tracker': function() {
-                $.showLoading({ name: 'jump-pulse', allowHide: false });
+                var delay = this.showLoadingDelay();
                 require(['main_controller'], function(MainController) {
                     if (window.userIsAuthenticated) {
-                        MainController.renderTracker();
+                        MainController.renderTracker(delay);
                     } else {
-                        AppController.renderAuthView();
+                        AppController.renderAuthView(delay);
                     }
                 });
             },
             'manage-times': function() {
-                $.showLoading({ name: 'jump-pulse', allowHide: false });
+                var delay = this.showLoadingDelay();
                 require(['times_controller'], function(TimesController) {
                     if (window.userIsAuthenticated) {
-                        TimesController.renderManageTimesView();
+                        TimesController.renderManageTimesView(delay);
                     } else {
-                        AppController.renderAuthView();
+                        AppController.renderAuthView(delay);
                     }
                 });
             },
             'manage-locations': function() {
-                $.showLoading({ name: 'jump-pulse', allowHide: false });
+                var delay = this.showLoadingDelay();
                 require(['locations_controller'], function(LocationsController) {
                     if (window.userIsAuthenticated) {
-                        LocationsController.renderLocationsView();
+                        LocationsController.renderLocationsView(delay);
                     } else {
-                        AppController.renderAuthView();
+                        AppController.renderAuthView(delay);
                     }
                 });
             },
             'time-list': function() {
-                $.showLoading({ name: 'jump-pulse', allowHide: false });
+                var delay = this.showLoadingDelay();
                 require(['times_controller'], function(TimesController) {
                     if (window.userIsAuthenticated) {
-                        TimesController.createTimesView();
+                        TimesController.createTimesView(delay);
                     } else {
-                        AppController.renderAuthView();
+                        AppController.renderAuthView(delay);
                     }
                 });
             }
         });
+        Router.prototype.showLoadingDelay = function() {
+                                                var delay = setTimeout(function(){
+                                                    $.showLoading({ name: 'jump-pulse', allowHide: false });
+                                                }, 200);
+                                                return delay;
+        };
         return Router;
     });

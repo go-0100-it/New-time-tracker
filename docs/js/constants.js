@@ -13,8 +13,6 @@ const TRACK_TIME = 'Track Time';
 const SETTINGS = 'Settings';
 const MANAGE_TIMES = 'Manage Times';
 const MANAGE_LOCATIONS = 'Manage Locations';
-const SHOW_TIMES = 'Show Times';
-const HIDE_TIMES = 'Hide Times';
 
 /* TIMES INPUT VIEW DOM ELEMENTS */
 // Input ids
@@ -30,11 +28,10 @@ const FINISH_BUTTON_ID = 'finish';
 const NEW_TIMES_BUTTON_ID = 'new';
 
 /* VIEWS */
-// View containers
-const REMOVABLE_CONTAINER_ID = 'removable-container';
-const DISPLAY_VIEW_ID = 'display';
-const TRACK_TIMES_VIEW_ID = 'times-input-view';
+// View file names and paths
+const TRACKER_VIEW_ID = 'tracker-view';
 const SETTINGS_VIEW_ID = 'settings-view';
 const MANAGE_LOCATIONS_VIEW_ID = 'manage-locations-view';
 const MANAGE_TIMES_VIEW_ID = 'manage-times-view';
 const SHOW_TIMES_VIEW_ID = 'show-times-view';
+const DISPLAY_VIEW_ID = 'display';

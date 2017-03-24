@@ -4,7 +4,6 @@ define([],
             function($) {
                 require([
                         'jq_loading',
-                        'loading',
                         'css!css/loading.css'
                     ],
                     function() {
@@ -37,11 +36,15 @@ define([],
                             $('#sign-in').on('click', function(e) {
                                 e.preventDefault();
                                 e.stopPropagation();
-                                $.showLoading({ name: 'jump-pulse', allowHide: false });
-                                $(window).trigger('clickSign-in');
+                                var showLoadingDelay =
+                                    setTimeout(function(){
+                                        console.log('still would have shown')
+                                    $.showLoading({ name: 'jump-pulse', allowHide: false });
+                                }, 300);
+                                $(window).trigger('clickSign-in', showLoadingDelay);
                             });
 
-                            $(window).on('clickSign-in', function(e) {
+                            $(window).on('clickSign-in', function(e, showLoadingDelay) {
                                 console.log('got the click');
                                 // Start a sign in process for an unauthenticated user.
                                 var provider = new firebase.auth.GoogleAuthProvider();
@@ -50,6 +53,7 @@ define([],
                                 firebase.auth().signInWithPopup(provider).then(function(result) {
                                     // This gives you a Google Access Token. You can use it to access the Google API.
                                     require(['app'], function(app) {
+                                        clearTimeout(showLoadingDelay);
                                         var token = result.credential.accessToken;
                                         // The signed-in user info.
                                         var user = result.user;

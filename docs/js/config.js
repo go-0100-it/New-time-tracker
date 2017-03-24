@@ -70,7 +70,7 @@ requirejs.config({
 
 });
 // Start the main app logic.
-requirejs(['firebase_app', 'firebase_auth', 'firebase_data_base'], function(fb_app, fb_auth, fb_db) {
+requirejs(['firebase_app', 'firebase_auth', 'firebase_data_base'], function() {
     // Initialize Firebase
     requirejs(['auth'], function(auth) {
         var configFB = {

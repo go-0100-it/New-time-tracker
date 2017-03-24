@@ -3,7 +3,7 @@ define([
         'constants'
 
     ],
-    function(CONSTANTS) {
+    function() {
         require(['util'], function(tpl) {
             tpl.loadTemplates([
                     'tracker-view',

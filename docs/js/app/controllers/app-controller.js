@@ -8,21 +8,21 @@ define([
     ],
     function($, appDataModel, User, SettingsView, AuthView, HomeView) {
 
-        var renderSettingsView = function() {
-            // TODO:
-            // Here I will require appDataModel and SettingsView
-            // Will remove from define
+        var renderSettingsView = function(showLoadingDelay) {
             var settingsView = new SettingsView().render();
+            clearTimeout(showLoadingDelay);
             $.hideLoading();
             return settingsView;
         };
-        var renderAuthView = function() {
+        var renderAuthView = function(showLoadingDelay) {
             var authView = new AuthView().render();
+            clearTimeout(showLoadingDelay);
             $.hideLoading();
             return authView;
         };
-        var renderHomeView = function() {
+        var renderHomeView = function(showLoadingDelay) {
             var homeView = new HomeView().render();
+            clearTimeout(showLoadingDelay);
             $.hideLoading();
             return homeView;
         };

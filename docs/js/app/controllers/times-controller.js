@@ -3,18 +3,16 @@
 define(['jquery', 'backbone', 'underscore', 'times_model', 'times_collection', 'times_view', 'times_list_view', 'times_item_view', 'manage_times_view'],
     function($, backbone, _, Times, TimesCollection, TimesView, TimesListView, TimesItemView, ManageTimesView) {
 
-        var createTimesView = function() {
+        var createTimesView = function(showLoadingDelay) {
             require(['css!css/times/times-detail-view.css'], function() {
                 $(document).ready(function() {
                     var timesView = new TimesView().render();
-                    renderTimesList();
+                    renderTimesList(showLoadingDelay);
                 });
             });
         };
 
-
-        var renderTimesList = function() {
-
+        var renderTimesList = function(showLoadingDelay) {
             return firebase.database().ref("times").once('value').then(function(snapshot) {
                 var times = snapshot.val();
                 var data = new TimesCollection([]);
@@ -25,13 +23,15 @@ define(['jquery', 'backbone', 'underscore', 'times_model', 'times_collection', '
                 }
 
                 var timesList = new TimesListView({ model: data }).render();
-                $.hideLoading({ name: 'jump-pulse' });
+                clearTimeout(showLoadingDelay);
+                $.hideLoading();
             });
         };
 
-        var renderManageTimesView = function() {
+        var renderManageTimesView = function(showLoadingDelay) {
             var manageTimesView = new ManageTimesView().render();
-            $.hideLoading({ name: 'jump-pulse' });
+            clearTimeout(showLoadingDelay);
+            $.hideLoading();
             return manageTimesView;
         };
 
