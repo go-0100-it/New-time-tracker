@@ -5,7 +5,7 @@ define([],
                 require([
                         'jq_loading',
                         'loading',
-                        'css!css/loading.min.css'
+                        'css!css/loading.css'
                     ],
                     function() {
                         $(document).ready(function() {
