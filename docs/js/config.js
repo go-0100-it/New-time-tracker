@@ -10,10 +10,8 @@ requirejs.config({
         /* Libraries */
         jquery: 'libs/jquery-3.1.1.min',
         jq_loading: 'libs/jquery.loading.min',
-        loading: 'libs/loading.min',
         underscore: 'libs/underscore.js-1.8.3.min',
         backbone: 'libs/backbone.min',
-        backbonefire: 'libs/backbonefire',
         firebase_app: 'https://www.gstatic.com/firebasejs/3.6.10/firebase-app',
         firebase_auth: 'https://www.gstatic.com/firebasejs/3.7.1/firebase-auth',
         firebase_data_base: 'https://www.gstatic.com/firebasejs/3.6.10/firebase-database',
@@ -26,7 +24,6 @@ requirejs.config({
         main_controller: 'app/controllers/main-controller',
         locations_controller: 'app/controllers/locations-controller',
         times_controller: 'app/controllers/times-controller',
-        firebase_controller: 'app/controllers/firebase-controller',
 
         /* Models */
         app_data_model: 'app/models/app-data-model',
@@ -41,6 +38,7 @@ requirejs.config({
         drawer_view: 'app/views/main/drawer-menu-view',
         navbar_view: 'app/views/main/navbar-view',
         dropdown_view: 'app.views/main/dropdown-view',
+
         // locations
         locations_map_view: 'app/views/locations/locations-map-view',
         locations_view: 'app/views/locations/locations-view',
@@ -56,10 +54,6 @@ requirejs.config({
         times_view: 'app/views/times/times-view',
         tracker_view: 'app/views/times/tracker-view',
         manage_times_view: 'app/views/times/manage-times-view',
-
-        // utils
-        constants: 'constants'
-
     },
 
     shim: {
